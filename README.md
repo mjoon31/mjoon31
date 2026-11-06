@@ -22,7 +22,10 @@ Unity와 C#을 기반으로 게임 개발 역량을 쌓아가고 있는 신입 �
 
 ## 🎮 Projects
 
-<img src="./docs/assets/images/slime_raising_appIcon.png" alt="슬라임키우기 앱 아이콘" width="116" align="left" />
+<img src="https://raw.githubusercontent.com/mjoon31/slime-raising/main/Assets/04_Images/Sprites/UI/Icon/AppIcon.png"
+     alt="슬라임키우기 앱 아이콘"
+     width="116"
+     align="left" />
 
 #### 01. 슬라임키우기 (Slime Raising)
 
