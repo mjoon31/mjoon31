@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://myoungjoon31.github.io/myoungjoon31/sitemap.xml
+Sitemap: https://mjoon31.github.io/mjoon31/sitemap.xml

@@ -1,17 +1,16 @@
 import { readFile, readdir, stat } from 'node:fs/promises';
 import { resolve, dirname, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { createHash } from 'node:crypto';
+
 import assert from 'node:assert/strict';
-import { projects, site } from '../content/portfolio.mjs';
+import { projects, site, experience } from '../content/portfolio.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url));
 const docs=resolve(root,'docs');
 const base=new URL(site.url).pathname;
-// Windows 체크아웃의 CRLF를 Git 저장 형식인 LF로 정규화해 원본 내용을 비교합니다.
-const readme=Buffer.from((await readFile(resolve(root,'README.md'),'utf8')).replace(/\r\n/g,'\n'));
-const originalBlob='48d8ac3e553201974eaa684523225df5ddbe3749';
-assert.equal(createHash('sha1').update(`blob ${readme.length}\0`).update(readme).digest('hex'),originalBlob,'원본 README가 변경되었습니다.');
-assert.equal(base,'/myoungjoon31/','배포 기본 경로는 소문자 /myoungjoon31/이어야 합니다.');
+const oldAddress=/https?:\/\/(?:github\.com\/(?:MyoungJoonKim|myoungjoon31)(?:[\/\"#?]|$)|(?:myoungjoonkim|myoungjoon31)\.github\.io\/)|https?:\/\/github\.com\/mjoon31\/(?:myoungjoon31|myoungjoon)(?:[\/\"#?]|$)/i;
+assert.ok(!oldAddress.test(JSON.stringify({site,projects,experience})), '콘텐츠에 이전 GitHub 주소가 남아 있습니다.');
+// 프로필 README는 사이트 생성·검사 대상에서 제외합니다.
+assert.equal(base,'/mjoon31/','배포 기본 경로는 소문자 /mjoon31/이어야 합니다.');
 assert.equal(new Set(projects.map(p=>p.slug)).size,projects.length,'프로젝트 slug 중복');
 for(const p of projects){
   assert.match(p.slug,/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
@@ -27,7 +26,7 @@ for(const filename of htmlFiles){
   assert.equal((html.match(/<h1\b/g)||[]).length,1,`${filename}: h1은 하나여야 합니다.`);
   assert.match(html,/<html lang="ko">/);
   assert.match(html,/<meta name="description" content="[^"]+">/);
-  assert.ok(!/MyoungJoonKim|myoungjoonkim\.github\.io|\/myoungjoon\//i.test(html),'이전 계정·배포 경로가 남아 있습니다.');
+  assert.ok(!oldAddress.test(html),'이전 계정·배포 경로가 남아 있습니다.');
   assert.ok(!/href="(?:#|)"/.test(html),'빈 링크 사용 금지');
   assert.ok(!html.includes('이력서'),'이력서 항목 제외 요청');
   const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(x=>x[1]);
@@ -58,4 +57,4 @@ const css=await readFile(resolve(docs,'assets/site.css'),'utf8');
 assert.match(css,/prefers-reduced-motion/);
 assert.match(css,/:focus-visible/);
 console.log(`검증 통과: HTML ${htmlFiles.length}개, 내부 경로·앵커 ${linkCount}개, 이미지 ${imageCount}개`);
-console.log('원본 README Git blob 해시 일치 / 소문자 배포 경로 / 프로젝트 데이터 검사 통과');
+console.log('소문자 배포 경로 / 프로젝트 데이터 검사 통과');

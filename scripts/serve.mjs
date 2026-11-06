@@ -6,7 +6,7 @@ import { site } from '../content/portfolio.mjs';
 const root = fileURLToPath(new URL('../docs/', import.meta.url));
 const base = new URL(site.url).pathname;
 const port = Number(process.env.PORT || 4173);
-const types = {'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.jpg':'image/jpeg','.xml':'application/xml','.txt':'text/plain; charset=utf-8'};
+const types = {'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.jpg':'image/jpeg','.mp4':'video/mp4','.webm':'video/webm','.xml':'application/xml','.txt':'text/plain; charset=utf-8'};
 const server=http.createServer(async(req,res)=>{
   if (!['GET','HEAD'].includes(req.method)) {res.writeHead(405);res.end();return;}
   const send = async(file, code=200)=>{

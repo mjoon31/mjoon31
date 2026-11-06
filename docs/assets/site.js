@@ -135,3 +135,12 @@
   }, {rootMargin:'-100px 0px -40% 0px',threshold:0});
   sections.forEach(s=>sectionObserver.observe(s));
 })();
+const clips=[...document.querySelectorAll('video[data-gameplay]')];
+const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
+const onScreen=new Set();
+function loadClip(video){if(!video.getAttribute('src'))video.src=video.dataset.src;}
+function playClip(video){loadClip(video);video.muted=true;video.defaultPlaybackRate=2;video.playbackRate=2;if(!motionPreference.matches&&!document.hidden)video.play().catch(()=>{});}
+for(const video of clips){video.defaultPlaybackRate=2;video.playbackRate=2;video.muted=true;video.removeAttribute('autoplay');video.addEventListener('loadedmetadata',()=>{video.defaultPlaybackRate=2;video.playbackRate=2;});}
+if('IntersectionObserver' in window){const clipObserver=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){onScreen.add(entry.target);playClip(entry.target);}else{onScreen.delete(entry.target);entry.target.pause();}}},{threshold:.15});clips.forEach(v=>clipObserver.observe(v));}else clips.forEach(loadClip);
+document.addEventListener('visibilitychange',()=>{for(const video of clips){if(document.hidden)video.pause();else if(onScreen.has(video))playClip(video);}});
+motionPreference.addEventListener('change',()=>{for(const video of clips){if(motionPreference.matches)video.pause();else if(onScreen.has(video))playClip(video);}});

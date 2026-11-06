@@ -2,6 +2,9 @@
 node_modules/
 .preview/
 *.log
+coverage/
+playwright-report/
+test-results/
 
 # 개인 작업 기록: 로컬에만 보관
 /SITE-PLAN.md
@@ -23,3 +26,13 @@ local-only/
 .ssh/
 .codex/
 .agents/
+
+# 개인 편집기 설정·운영체제 임시 파일
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
