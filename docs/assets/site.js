@@ -135,12 +135,34 @@
   }, {rootMargin:'-100px 0px -40% 0px',threshold:0});
   sections.forEach(s=>sectionObserver.observe(s));
 })();
+// 영상 주소는 HTML에 직접 두어 지연 로딩 코드 없이도 재생할 수 있습니다.
 const clips=[...document.querySelectorAll('video[data-gameplay]')];
 const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
 const onScreen=new Set();
-function loadClip(video){if(!video.getAttribute('src'))video.src=video.dataset.src;}
-function playClip(video){loadClip(video);video.muted=true;video.defaultPlaybackRate=2;video.playbackRate=2;if(!motionPreference.matches&&!document.hidden)video.play().catch(()=>{});}
-for(const video of clips){video.defaultPlaybackRate=2;video.playbackRate=2;video.muted=true;video.removeAttribute('autoplay');video.addEventListener('loadedmetadata',()=>{video.defaultPlaybackRate=2;video.playbackRate=2;});}
-if('IntersectionObserver' in window){const clipObserver=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){onScreen.add(entry.target);playClip(entry.target);}else{onScreen.delete(entry.target);entry.target.pause();}}},{threshold:.15});clips.forEach(v=>clipObserver.observe(v));}else clips.forEach(loadClip);
+const manuallyPaused=new WeakSet();
+function playClip(video,manual=false){
+  video.muted=true;
+  video.defaultPlaybackRate=1.5;
+  video.playbackRate=1.5;
+  if(!document.hidden&&(manual||(!motionPreference.matches&&!manuallyPaused.has(video)))){
+    const attempt=video.play();
+    if(attempt)attempt.catch(()=>{video.controls=true;});
+  }
+}
+for(const video of clips){
+  video.muted=true;
+  video.defaultPlaybackRate=1.5;
+  video.playbackRate=1.5;
+  if(motionPreference.matches){video.autoplay=false;video.pause();}
+  video.addEventListener('loadedmetadata',()=>{video.defaultPlaybackRate=1.5;video.playbackRate=1.5;});
+  video.addEventListener('canplay',()=>{if(onScreen.has(video))playClip(video);});
+  const toggle=()=>{if(video.paused){manuallyPaused.delete(video);playClip(video,true);}else{manuallyPaused.add(video);video.pause();}};
+  video.addEventListener('click',()=>{if(!video.controls)toggle();});
+  video.addEventListener('keydown',event=>{if(event.key===' '||event.key==='Enter'){event.preventDefault();toggle();}});
+}
+if('IntersectionObserver' in window){
+  const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){onScreen.add(entry.target);playClip(entry.target);}else{onScreen.delete(entry.target);entry.target.pause();}}},{threshold:0.05});
+  clips.forEach(video=>observer.observe(video));
+}else{clips.forEach(video=>{onScreen.add(video);playClip(video);});}
 document.addEventListener('visibilitychange',()=>{for(const video of clips){if(document.hidden)video.pause();else if(onScreen.has(video))playClip(video);}});
 motionPreference.addEventListener('change',()=>{for(const video of clips){if(motionPreference.matches)video.pause();else if(onScreen.has(video))playClip(video);}});

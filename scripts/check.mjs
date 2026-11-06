@@ -42,7 +42,8 @@ for(const filename of htmlFiles){
     let raw=match[1].replaceAll('&amp;','&');
     if(/^(https:|mailto:)/.test(raw))continue;
     assert.ok(!/^(javascript:|data:|http:|\/\/)/i.test(raw),'허용되지 않는 URL');
-    const [pathpart,hash]=raw.split('#');
+    const [pathWithQuery,hash]=raw.split('#');
+    const pathpart=pathWithQuery.split('?')[0];
     let target=pathpart.startsWith('/')?resolve(docs,pathpart.slice(base.length)):resolve(dirname(filename),pathpart||filename);
     if(pathpart.startsWith('/'))assert.ok(pathpart.startsWith(base),'프로젝트 기본 경로 밖의 링크');
     const info=await stat(target).catch(()=>null);

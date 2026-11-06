@@ -42,42 +42,42 @@ export const projects = [
       {
         "src": "assets/media/slime-raising/screenshot-1.jpg",
         "alt": "슬라임을 원하는 스타일로 키우세요!",
-        "caption": "슬라임을 원하는 스타일로 키우세요!",
+        "caption": "슬라임 육성",
         "width": 720,
         "height": 1560
       },
       {
         "src": "assets/media/slime-raising/screenshot-2.jpg",
         "alt": "몰려오는 적들을 사냥하세요!",
-        "caption": "몰려오는 적들을 사냥하세요!",
+        "caption": "몰려오는 적",
         "width": 720,
         "height": 1560
       },
       {
         "src": "assets/media/slime-raising/screenshot-3.jpg",
         "alt": "랜덤 스킬을 조합해 강해지세요!",
-        "caption": "랜덤 스킬을 조합해 강해지세요!",
+        "caption": "랜덤 스킬",
         "width": 720,
         "height": 1560
       },
       {
         "src": "assets/media/slime-raising/screenshot-4.jpg",
         "alt": "시간 내에 미션을 달성하세요!",
-        "caption": "시간 내에 미션을 달성하세요!",
+        "caption": "미션 도전",
         "width": 720,
         "height": 1560
       },
       {
         "src": "assets/media/slime-raising/screenshot-5.jpg",
         "alt": "보스에 도전하세요!",
-        "caption": "보스에 도전하세요!",
+        "caption": "보스 도전",
         "width": 720,
         "height": 1560
       },
       {
         "src": "assets/media/slime-raising/screenshot-6.jpg",
         "alt": "다음 전투를 위해 능력을 강화하세요!",
-        "caption": "다음 전투를 위해 능력을 강화하세요!",
+        "caption": "영구 강화",
         "width": 720,
         "height": 1560
       }
