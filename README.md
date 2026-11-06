@@ -6,7 +6,7 @@ Unity와 C#을 기반으로 게임 개발 역량을 쌓아가고 있는 신입 �
 
 개인 모바일 게임 개발 경험을 바탕으로, 현재는 **NGO와 Steam P2P를 활용한 온라인 협동 게임**을 개발하고 있습니다.
 
-🌐 **[Portfolio Website](https://myoungjoon31.github.io/myoungjoon31)**
+🌐 **[My Website](https://mjoon31.github.io/mjoon31)**
 
 ---
 
@@ -22,13 +22,14 @@ Unity와 C#을 기반으로 게임 개발 역량을 쌓아가고 있는 신입 �
 
 ## 🎮 Projects
 
-### 01. 슬라임키우기 (Slime Raising)
+<img src="./docs/assets/images/slime_raising_appIcon.png" alt="슬라임키우기 앱 아이콘" width="116" align="left" />
 
-**2D 모바일 액션 로그라이크 RPG**
+#### 01. 슬라임키우기 (Slime Raising)
 
-`Unity` `C#` `Android` `Single Player`
+**2D 모바일 액션 로그라이크 RPG** · `Unity` `C#` `Android` `Single Player`  
+**개인 프로젝트** · 2026.03 ~ 2026.09
 
-**개인 프로젝트 | 2026.03 ~ 2026.09**
+<br clear="left" />
 
 몬스터를 처치하고 경험치를 획득하여 다양한 스킬과 능력을 성장시키는 2D 모바일 액션 로그라이크 게임입니다.
 
@@ -39,7 +40,7 @@ Unity와 C#을 기반으로 게임 개발 역량을 쌓아가고 있는 신입 �
 - UI·사운드·로컬라이제이션 및 유저 데이터 관리
 - ScriptableObject 기반 데이터 설계 및 오브젝트 풀링
 
-**[프로젝트 GitHub 저장소 보기](https://github.com/myoungjoon31/slime-raising)**
+**[프로젝트 GitHub 저장소 보기](https://github.com/mjoon31/slime-raising)**
 
 ---
 
@@ -62,7 +63,7 @@ Unity와 C#을 기반으로 게임 개발 역량을 쌓아가고 있는 신입 �
 
 *현재 개발 중이며, 위 항목에는 구현 예정 기능이 포함되어 있습니다.*
 
-**[프로젝트 GitHub 저장소]()**
+**[프로젝트 GitHub 저장소 보기]()**
 
 ---
 
@@ -82,12 +83,12 @@ Unity와 C#을 기반으로 게임 개발 역량을 쌓아가고 있는 신입 �
 
 단순한 문법 암기보다 **직접 구현한 코드를 검증하고, 문제의 원인과 개선 방향을 스스로 설명할 수 있는 개발 역량**을 기르는 데 중점을 두고 있습니다.
 
-**[GameDev Lab GitHub 저장소 보기](https://github.com/myoungjoon31/gamedev-lab)**
+**[GameDev Lab GitHub 저장소 보기](https://github.com/mjoon31/gamedev-lab)**
 
 ---
 
 ## 📫 Contact
 
-- **Portfolio:** [myoungjoon31.github.io/myoungjoon31](https://myoungjoon31.github.io/myoungjoon31)
-- **GitHub:** [github.com/myoungjoon31](https://github.com/myoungjoon31)
+- **Portfolio:** [mjoon31.github.io/mjoon31](https://mjoon31.github.io/mjoon31)
+- **GitHub:** [github.com/mjoon31](https://github.com/mjoon31)
 - **Email:** [xxmj96@gmail.com](mailto:xxmj96@gmail.com)
