@@ -54,13 +54,6 @@ export const projects = [
         "height": 1560
       },
       {
-        "src": "assets/media/slime-raising/screenshot-3.jpg",
-        "alt": "랜덤 스킬을 조합해 강해지세요!",
-        "caption": "랜덤 스킬",
-        "width": 720,
-        "height": 1560
-      },
-      {
         "src": "assets/media/slime-raising/screenshot-4.jpg",
         "alt": "시간 내에 미션을 달성하세요!",
         "caption": "미션 도전",

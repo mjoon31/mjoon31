@@ -44,17 +44,29 @@ body:not(.has-js) .site-header{position:static;align-items:center;margin:16px 15
 @media print{.profile-overlay,.copy-status{display:none}.profile-links>.profile-name{background:none;color:#222}}
 
 /* 세로 미디어는 비율을 유지한 작은 갤러리로 배치합니다. */
-.screenshot-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 11px;max-width:358px;width:70%;margin-inline:auto;align-items:start}
+#gameplay{--media-gap:clamp(5.28px,1.32vw,15.84px)}
+.screenshot-gallery{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--media-gap);max-width:818.4px;width:min(818.4px,calc(100vw - 94px));margin-left:14px;margin-right:0;align-items:start}
 .gameplay-shot,.gameplay-clip{width:100%;min-width:0;margin:0}
 .gameplay-shot img,.gameplay-clip video{display:block;width:100%;height:auto;aspect-ratio:720/1560;object-fit:contain;border-radius:8px;background:#141b22}
 .gameplay-shot figcaption{white-space:nowrap;font-size:11px;line-height:1.6;color:#bac1ca;text-align:center;margin-top:7px;word-break:keep-all}
-.video-gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin:32px auto 0;max-width:504px;width:70%;align-items:start}
+.video-gallery{display:grid;grid-template-columns:repeat(4,calc((100% - 4 * var(--media-gap)) / 5));justify-content:space-between;margin:32px 0 0 14px;max-width:818.4px;width:min(818.4px,calc(100vw - 94px));align-items:start}
 .gameplay-clip video{cursor:pointer}.gameplay-clip video:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .detail-cover.detail-app-icon{width:120px;height:120px;aspect-ratio:1;margin:0 0 28px;background:none;overflow:hidden;border-radius:24px}
 .detail-cover.detail-app-icon img{display:block;width:100%;height:100%;min-height:0;object-fit:contain;border-radius:24px}
-@media(max-width:600px){.screenshot-gallery{gap:18px 9px}.gameplay-shot figcaption{font-size:10px;margin-top:6px}.gameplay-shot img,.gameplay-clip video{border-radius:5px}.video-gallery{gap:5px;margin-top:24px}.detail-cover.detail-app-icon{width:96px;height:96px;border-radius:20px}}
+@media(max-width:600px){.screenshot-gallery{gap:var(--media-gap)}.gameplay-shot figcaption{font-size:10px;margin-top:6px}.gameplay-shot img,.gameplay-clip video{border-radius:5px}.video-gallery{margin-top:24px}.detail-cover.detail-app-icon{width:96px;height:96px;border-radius:20px}}
 
 /* 메인 섹션은 한 화면을 기본 단위로 사용하며 긴 콘텐츠는 자연스럽게 확장합니다. */
 .home-page{scroll-snap-type:y proximity}.home-page main>section{min-height:100svh;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center;padding-top:clamp(56px,7svh,90px);padding-bottom:clamp(56px,7svh,90px)}.home-page .about-section{padding-inline:40px}.home-page .about-panel{width:100%;margin-block:0}.home-page .experience-section{padding-bottom:70px}.skill-item{min-height:170px}.skill-item p{word-break:keep-all;overflow-wrap:normal;line-height:1.95}.slime-card-art{position:relative;width:100%;height:100%;min-height:132px;background:#163347;overflow:hidden}.slime-card-art img.card-scene{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 50%;filter:blur(3px);opacity:.38}.slime-card-art img.card-app-icon{position:absolute;left:30px;top:50%;transform:translateY(-50%);width:104px;height:104px;object-fit:contain;border-radius:22px;box-shadow:0 8px 24px #0004}.slime-card-art img.card-screen{position:absolute;right:30px;top:-46px;width:112px;height:243px;object-fit:cover;border-radius:10px;transform:rotate(8deg);box-shadow:0 5px 25px #0005}.project-card:hover .slime-card-art img{transform:none}.project-card:hover .slime-card-art img.card-app-icon{transform:translateY(-50%)}.project-card:hover .slime-card-art img.card-screen{transform:rotate(8deg)}.detail-cover .slime-card-art{height:300px}.detail-cover .slime-card-art img.card-app-icon{width:200px;height:200px;left:15%}.detail-cover .slime-card-art img.card-screen{width:180px;height:390px;right:16%;top:-38px}.detail-cover figcaption{display:none}.detail-cover:has(img[src$="house-placeholder.svg"]) figcaption{display:block}@media(max-width:800px){.home-page .about-section{padding-inline:28px}.skill-item{min-height:185px}.slime-card-art img.card-app-icon{left:19px;width:90px;height:90px}.slime-card-art img.card-screen{right:20px;width:95px;height:206px}}@media(max-width:600px){.home-page .about-section{padding-inline:16px}.home-page main>section{padding-block:65px}.home-page .about-panel{padding-top:30px;padding-bottom:30px}.skill-item{min-height:150px}.detail-cover .slime-card-art{height:230px}.detail-cover .slime-card-art img.card-app-icon{width:120px;height:120px;left:7%}.detail-cover .slime-card-art img.card-screen{width:110px;height:238px;right:9%;top:-5px}}@media(prefers-reduced-motion:reduce){.home-page{scroll-snap-type:none}}
-html:has(.home-page){scroll-snap-type:y proximity;scroll-padding-top:0}.home-page main>section{scroll-margin-top:0}@media(prefers-reduced-motion:reduce){html:has(.home-page){scroll-snap-type:none}}
+html:has(.home-page){scroll-snap-type:y mandatory;scroll-padding-top:0}.home-page main>section{scroll-margin-top:0;scroll-snap-stop:always}@media(prefers-reduced-motion:reduce){html:has(.home-page){scroll-snap-type:none}}
 @media(max-width:600px){.home-page main>section{padding-block:35px}.home-page .project-cover{height:90px}.home-page .project-card .project-role,.home-page .project-card .tags{display:none}.home-page .project-card-body{padding:10px 16px}.home-page .project-description{font-size:13px;line-height:1.7}.home-page .project-overline{margin-bottom:3px}.home-page .skill-item{min-height:135px;padding-block:25px 18px}.home-page .skills-grid{gap:32px}.home-page .skill-item p{font-size:13px}.home-page .experience-section{padding-bottom:35px}.home-page .profile-picture{max-width:125px}}
+
+@media(max-width:800px){.screenshot-gallery,.video-gallery{width:calc(100% - 14px)}}
+
+/* 상세 페이지의 흐름과 다음 프로젝트도 미디어 줄의 오른쪽 기준에 맞춥니다. */
+.detail-page .flow-diagram,.detail-page .other-projects{width:min(832.4px,calc(100vw - 80px));max-width:none}
+.detail-page .other-projects>.container{width:100%;max-width:none;margin:0}
+.detail-page .other-projects .section-heading{align-items:center}
+.flow-diagram ol{display:flex;flex-wrap:nowrap;gap:clamp(22px,2.4vw,36px)}
+.flow-diagram li{flex:1;text-align:center;display:flex;align-items:center;justify-content:center;padding:10px 8px;min-width:0}
+.flow-diagram li:not(:last-child)::after{right:calc(-1 * clamp(22px,2.4vw,36px));width:clamp(22px,2.4vw,36px);text-align:center}
+@media(max-width:800px){.detail-page .flow-diagram,.detail-page .other-projects{width:100%}.flow-diagram ol{flex-wrap:wrap;gap:22px}.flow-diagram li{flex:1 1 90px}.flow-diagram li:not(:last-child)::after{right:-22px;width:22px}}

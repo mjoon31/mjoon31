@@ -166,3 +166,41 @@ if('IntersectionObserver' in window){
 }else{clips.forEach(video=>{onScreen.add(video);playClip(video);});}
 document.addEventListener('visibilitychange',()=>{for(const video of clips){if(document.hidden)video.pause();else if(onScreen.has(video))playClip(video);}});
 motionPreference.addEventListener('change',()=>{for(const video of clips){if(motionPreference.matches)video.pause();else if(onScreen.has(video))playClip(video);}});
+
+// 메인 화면의 휠 이동은 1초 동안 다음 섹션으로 이어집니다.
+if(document.body.classList.contains('home-page')){
+  const panels=[...document.querySelectorAll('main>section')];
+  let moving=false;
+  let wheelTotal=0;
+  let lastWheel=0;
+  window.addEventListener('wheel',event=>{
+    if(event.ctrlKey||motionPreference.matches||Math.abs(event.deltaX)>Math.abs(event.deltaY)||event.target.closest('#primary-nav'))return;
+    if(moving){event.preventDefault();return;}
+    const current=panels.reduce((best,panel)=>Math.abs(panel.getBoundingClientRect().top)<Math.abs(best.getBoundingClientRect().top)?panel:best,panels[0]);
+    // 작은 화면의 긴 섹션은 일반 스크롤로 끝까지 읽을 수 있습니다.
+    if(current.offsetHeight>innerHeight+2)return;
+    if(performance.now()-lastWheel>180)wheelTotal=0;
+    lastWheel=performance.now();
+    wheelTotal+=event.deltaY*(event.deltaMode===1?16:event.deltaMode===2?innerHeight:1);
+    event.preventDefault();
+    if(Math.abs(wheelTotal)<25)return;
+    const next=panels[panels.indexOf(current)+(wheelTotal>0?1:-1)];
+    wheelTotal=0;
+    if(!next)return;
+    moving=true;
+    const root=document.documentElement;
+    const start=scrollY;
+    const end=next.getBoundingClientRect().top+start;
+    const began=performance.now();
+    root.style.scrollSnapType='none';
+    root.style.scrollBehavior='auto';
+    function frame(now){
+      const t=Math.min((now-began)/1000,1);
+      const eased=t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+      window.scrollTo(0,start+(end-start)*eased);
+      if(t<1)requestAnimationFrame(frame);
+      else{root.style.removeProperty('scroll-snap-type');root.style.removeProperty('scroll-behavior');moving=false;}
+    }
+    requestAnimationFrame(frame);
+  },{passive:false});
+}
