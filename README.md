@@ -27,12 +27,14 @@ Unity와 C#을 기반으로 게임 개발 역량을 쌓아가고 있는 신입 �
      width="116"
      align="left" />
 
-#### 01. 슬라임키우기 (Slime Raising)
+### 01. 슬라임키우기 (Slime Raising)
 
-**2D 모바일 액션 로그라이크 RPG** · `Unity` `C#` `Android` `Single Player`  
+**2D 모바일 액션 로그라이크 RPG** 
+`Unity` `C#` `Android` `Single Player`  
 **개인 프로젝트** · 2026.03 ~ 2026.09
 
 <br clear="left" />
+
 
 몬스터를 처치하고 경험치를 획득하여 다양한 스킬과 능력을 성장시키는 2D 모바일 액션 로그라이크 게임입니다.
 
