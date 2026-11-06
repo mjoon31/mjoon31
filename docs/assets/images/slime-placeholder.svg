@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="625" viewBox="0 0 1000 625" fill="none">
+<defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0v40" stroke="#c2d1ae" stroke-opacity=".35"/></pattern><linearGradient id="bg" x1="0" y1="0" x2="1000" y2="625" gradientUnits="userSpaceOnUse"><stop stop-color="#e2ebd2"/><stop offset="1" stop-color="#c6dba9"/></linearGradient><linearGradient id="body" x1="500" y1="200" x2="500" y2="420" gradientUnits="userSpaceOnUse"><stop stop-color="#e8f5bd"/><stop offset="1" stop-color="#92b665"/></linearGradient></defs>
+<path fill="url(#bg)" d="M0 0h1000v625H0z"/><path fill="url(#grid)" d="M0 0h1000v625H0z"/>
+<circle cx="696" cy="273" r="190" fill="#eaf1df" fill-opacity=".55"/><circle cx="696" cy="273" r="232" stroke="#a9c48e" stroke-dasharray="4 10"/><circle cx="696" cy="273" r="147" stroke="#aac390"/>
+<g stroke="#9db980" stroke-width="1.5"><path d="M510 273h372M696 87v372"/><path d="m570 147 252 252m0-252L570 399" opacity=".4"/></g>
+<ellipse cx="696" cy="390" rx="108" ry="17" fill="#7e9c5e" opacity=".16"/>
+<path d="M593 359c0-71 15-149 103-149s103 78 103 149c0 39-206 39-206 0Z" fill="url(#body)" stroke="#628649" stroke-width="3"/>
+<ellipse cx="659" cy="300" rx="8" ry="12" fill="#426036"/><ellipse cx="731" cy="300" rx="8" ry="12" fill="#426036"/><path d="M682 321q14 14 28 0" stroke="#426036" stroke-width="3" stroke-linecap="round"/><path d="M632 263c7-20 20-31 37-34" stroke="#f5fadd" stroke-width="8" stroke-linecap="round"/>
+<path d="m803 161 7 16 17 7-17 7-7 17-7-17-16-7 16-7Z" fill="#fcfff3" stroke="#8fac70"/>
+<path d="m558 334 4 9 10 4-10 4-4 10-4-10-10-4 10-4Z" fill="#f4f9e6"/>
+<g font-family="Arial,sans-serif" fill="#37552f"><text x="66" y="231" font-size="17" letter-spacing="4">GROW. FIGHT. REPEAT.</text><text x="62" y="302" font-size="58" font-weight="800" letter-spacing="-2">SLIME</text><text x="62" y="368" font-size="58" font-weight="800" letter-spacing="-2">RAISING</text><text x="66" y="415" font-size="12" letter-spacing="2.6" opacity=".8">2D ACTION ROGUELIKE / ANDROID</text></g>
+<g font-family="monospace" font-size="10" fill="#4b6940"><rect x="64" y="465" width="87" height="28" rx="14" stroke="#a1b88d" fill="none"/><text x="84" y="483">BATTLE</text><path d="M163 479h26" stroke="#8ca675"/><rect x="201" y="465" width="87" height="28" rx="14" stroke="#a1b88d" fill="none"/><text x="221" y="483">REWARD</text><path d="M300 479h26" stroke="#8ca675"/><rect x="338" y="465" width="87" height="28" rx="14" stroke="#a1b88d" fill="none"/><text x="359" y="483">GROWTH</text></g>
+<text x="881" y="574" font-family="monospace" font-size="10" letter-spacing="2" fill="#627b51">01 / MJ</text></svg>

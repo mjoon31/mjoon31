@@ -1,0 +1,25 @@
+# 로컬 의존성·임시 검증 자료
+node_modules/
+.preview/
+*.log
+
+# 개인 작업 기록: 로컬에만 보관
+/SITE-PLAN.md
+/VALIDATION.md
+/WEBSITE-README.md
+.private/
+local-only/
+
+# 환경 변수·인증 정보·개인 도구 설정
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+.credentials/
+.aws/
+.ssh/
+.codex/
+.agents/
