@@ -68,7 +68,7 @@ export const projects = [
         "height": 1560
       },
       {
-        "src": "assets/media/slime-raising/screenshot-6.jpg",
+        "src": "assets/media/slime-raising/screenshot-6.png",
         "alt": "다음 전투를 위해 능력을 강화하세요!",
         "caption": "영구 강화",
         "width": 720,

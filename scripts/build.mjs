@@ -31,7 +31,7 @@ function header(prefix, detail) {
   return `<a class="skip-link" href="#main">본문으로 바로 가기</a><header class="site-header"><button class="menu-toggle" aria-label="메뉴 열기" aria-controls="primary-nav" aria-expanded="false" hidden><span></span><span></span><span></span></button><nav id="primary-nav" aria-label="주 메뉴">${navItems.map(([id,title])=>`<a href="${prefix}#${id}"${!detail && id==='about'?' aria-current="location"':''}>${title}</a>`).join('')}</nav></header>`;
 }
 
-function shell({title, description, route='', body, prefix='./', detail=false, image='assets/images/og-profile.png', notFound=false}) {
+function shell({title, description, route='', body, prefix='./', detail=false, image='assets/images/og-profile-dark.png', notFound=false}) {
   const url = new URL(route, site.url).href;
   return `<!doctype html>
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark light"><title>${e(title)}</title><meta name="description" content="${e(description)}"><meta name="theme-color" content="#222831">${notFound?'<meta name="robots" content="noindex">':`<link rel="canonical" href="${url}">`}<meta property="og:type" content="website"><meta property="og:locale" content="ko_KR"><meta property="og:title" content="${e(title)}"><meta property="og:description" content="${e(description)}"><meta property="og:url" content="${url}"><meta property="og:image" content="${new URL(image, site.url).href}"><meta name="twitter:card" content="summary_large_image"><link rel="icon" type="image/svg+xml" href="${prefix}assets/images/favicon.svg"><link rel="stylesheet" href="${prefix}assets/site.css?v=${assetVersion['site.css']}"><script src="${prefix}assets/site.js?v=${assetVersion['site.js']}" defer></script></head><body id="top" class="${detail ? 'detail-page' : 'home-page'}">${header(prefix,detail)}${body}</body></html>\n`;
@@ -51,7 +51,7 @@ function home() {
 }
 
 function media(p, prefix) {
-  const shots=p.screenshots.map(s=>`<figure class="gameplay-shot"><a href="${prefix}${e(s.src)}" target="_blank" rel="noopener noreferrer" aria-label="${e(s.alt)} 원본 보기"><img src="${prefix}${e(s.src)}" alt="${e(s.alt)}" width="${s.width}" height="${s.height}" loading="lazy" decoding="async"></a><figcaption>${e(s.caption)}</figcaption></figure>`).join('');
+  const shots=p.screenshots.map(s=>`<figure class="gameplay-shot"><a href="${prefix}${e(s.src)}" target="_blank" rel="noopener noreferrer" aria-label="${e(s.alt)} 원본 보기"><img src="${prefix}${e(s.src)}" alt="${e(s.alt)}" width="${s.width}" height="${s.height}" loading="eager" decoding="async"></a><figcaption>${e(s.caption)}</figcaption></figure>`).join('');
   const videos=(p.videos||[]).map(v=>`<figure class="gameplay-clip"><video data-gameplay src="${prefix}${e(v.src)}" width="1080" height="2340" muted loop playsinline autoplay preload="metadata" tabindex="0" role="button" aria-label="${e(p.title)} 플레이 영상 일시정지 또는 재생"><a href="${prefix}${e(v.src)}">영상 열기</a></video></figure>`).join('');
   return shots||videos ? `<div class="screenshot-gallery">${shots}</div>${videos?`<div class="video-gallery" aria-label="짧은 플레이 영상">${videos}</div>`:''}` : '<p>플레이 화면 준비 중</p>';
 }
