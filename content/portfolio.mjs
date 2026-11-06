@@ -301,7 +301,7 @@ export const skills = [
   {
     "title": "Unity",
     "icon": "unity",
-    "text": "캐릭터·전투·성장 시스템 구현.\nScriptableObject와 오브젝트 풀링으로\n게임 데이터를 관리합니다."
+    "text": "캐릭터·전투·성장 시스템 구현.\nScriptableObject와 오브젝트 풀링으로 게임 데이터를 관리합니다."
   },
   {
     "title": "C#",
@@ -311,12 +311,12 @@ export const skills = [
   {
     "title": "NGO · Steam P2P",
     "icon": "network",
-    "text": "온라인 협동 게임의 동기화와\nSteam P2P 연동 개발 중.\n세부 기능은 개발 목표를 포함합니다."
+    "text": "온라인 협동 게임의 동기화와 Steam P2P 연동 개발 중.\n세부 기능은 개발 목표를 포함합니다."
   },
   {
     "title": "이해와 검증",
     "icon": "spark",
-    "text": "AI를 활용한 학습 환경 구축.\n직접 코드 구현·자동 채점·오류 분석을\n반복하며 학습합니다."
+    "text": "AI를 활용한 학습 환경 구축.\n직접 코드 구현·자동 채점·오류 분석을 반복하며 학습합니다."
   }
 ];
 

@@ -70,3 +70,32 @@ html:has(.home-page){scroll-snap-type:y mandatory;scroll-padding-top:0}.home-pag
 .flow-diagram li{flex:1;text-align:center;display:flex;align-items:center;justify-content:center;padding:10px 8px;min-width:0}
 .flow-diagram li:not(:last-child)::after{right:calc(-1 * clamp(22px,2.4vw,36px));width:clamp(22px,2.4vw,36px);text-align:center}
 @media(max-width:800px){.detail-page .flow-diagram,.detail-page .other-projects{width:100%}.flow-diagram ol{flex-wrap:wrap;gap:22px}.flow-diagram li{flex:1 1 90px}.flow-diagram li:not(:last-child)::after{right:-22px;width:22px}}
+
+/* 큰 화면에서는 고정 폭 대신 화면 비율에 맞춰 메인 콘텐츠를 확장합니다. */
+@media(min-width:1600px){
+.home-page{--max:clamp(1100px,72vw,1800px)}
+.home-page .about-panel{max-width:var(--max);padding:clamp(40px,4vh,70px) clamp(70px,5vw,130px)}
+.home-page .about-panel h1{font-size:clamp(46px,3vw,76px)}
+.home-page .profile-row{grid-template-columns:minmax(210px,20%) minmax(360px,40%);gap:clamp(70px,6vw,150px)}
+.home-page .profile-picture{max-width:clamp(210px,12vw,320px)}
+.home-page .about-copy{font-size:clamp(15px,1vw,24px)}
+.home-page .profile-links>:is(a,button,.profile-name){font-size:clamp(14px,.95vw,23px);min-height:clamp(46px,4.5vh,65px)}
+.home-page .section-title{font-size:clamp(36px,2.6vw,64px)}
+.home-page .project-cover{height:clamp(132px,12vh,230px)}
+.home-page .card-title-row h3{font-size:clamp(25px,1.8vw,42px)}
+.home-page .project-card-body{padding:clamp(20px,1.6vw,35px)}
+.home-page .project-description,.home-page .skill-item p,.home-page .experience-item p{font-size:clamp(14px,.95vw,23px)}
+.home-page .skill-item{padding:clamp(28px,2vw,45px);min-height:clamp(170px,18vh,280px)}
+.home-page .skill-item h3,.home-page .experience-item h3{font-size:clamp(22px,1.5vw,36px)}
+.home-page .experience-item{padding-block:clamp(20px,2.6vh,40px)}
+}
+
+.skill-sentence{display:block}
+@media(min-width:1100px){.skill-sentence{white-space:nowrap}}
+
+/* 프로젝트 카드의 보조 정보와 링크 대비를 높입니다. */
+.home-page .project-card .repository-link{color:#263843;font-size:13px;font-weight:650}
+.home-page .project-card .repository-link.unavailable{color:#46535e;font-weight:550}
+.home-page .project-card .project-overline>span:first-child,.home-page .project-card .project-role{color:#46535e;font-weight:550}
+.home-page .project-card .tags>li{background:var(--panel-accent);color:#fff;font-weight:600}
+@media(max-width:600px){.home-page .project-card .repository-link{font-size:12px}}

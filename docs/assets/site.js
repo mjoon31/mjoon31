@@ -183,7 +183,7 @@ if(document.body.classList.contains('home-page')){
     lastWheel=performance.now();
     wheelTotal+=event.deltaY*(event.deltaMode===1?16:event.deltaMode===2?innerHeight:1);
     event.preventDefault();
-    if(Math.abs(wheelTotal)<25)return;
+    if(Math.abs(wheelTotal)<8)return;
     const next=panels[panels.indexOf(current)+(wheelTotal>0?1:-1)];
     wheelTotal=0;
     if(!next)return;
