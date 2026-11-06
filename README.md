@@ -1,10 +1,12 @@
-# 김명준 | Unity Client Developer
+# 김명준 Myoungjoon Kim | Unity Client Developer
 
-### 안녕하세요. Unity 게임 클라이언트 개발자 김명준입니다. 👋
+### 👋 About Me
 
-Unity와 C#을 기반으로 게임플레이 시스템을 설계하고 구현하고 있습니다.
+Unity와 C#을 기반으로 게임 개발 역량을 쌓아가고 있는 신입 개발자입니다.
 
-개인 모바일 게임 개발 경험을 바탕으로 현재는 Unity NGO와 Steam P2P를 활용한 온라인 협동 게임을 개발하고 있습니다.
+개인 모바일 게임 개발 경험을 바탕으로, 현재는 **NGO와 Steam P2P를 활용한 온라인 협동 게임**을 개발하고 있습니다.
+
+🌐 **[Portfolio Website](https://myoungjoon31.github.io/myoungjoon31)**
 
 ---
 
@@ -15,12 +17,10 @@ Unity와 C#을 기반으로 게임플레이 시스템을 설계하고 구현하�
 | Engine | Unity 2022.3 LTS |
 | Language | C# |
 | Networking | NGO, Steamworks.NET |
-| Libraries | DOTween, Unity Localization |
-| Tools | Visual Studio, Git, GitHub, GitHub Desktop |
 
 ---
 
-## 🎮 Featured Projects
+## 🎮 Projects
 
 ### 01. 슬라임키우기 (Slime Raising)
 
@@ -39,7 +39,7 @@ Unity와 C#을 기반으로 게임플레이 시스템을 설계하고 구현하�
 - UI·사운드·로컬라이제이션 및 유저 데이터 관리
 - ScriptableObject 기반 데이터 설계 및 오브젝트 풀링
 
-**[프로젝트 GitHub 저장소](https://github.com/MyoungJoonKim/project-m1)**
+**[프로젝트 GitHub 저장소 보기](https://github.com/myoungjoon31/slime-raising)**
 
 ---
 
@@ -82,11 +82,12 @@ Unity와 C#을 기반으로 게임플레이 시스템을 설계하고 구현하�
 
 단순한 문법 암기보다 **직접 구현한 코드를 검증하고, 문제의 원인과 개선 방향을 스스로 설명할 수 있는 개발 역량**을 기르는 데 중점을 두고 있습니다.
 
-**[GameDev Lab GitHub 저장소](https://github.com/MyoungJoonKim/gamedev-lab)**
+**[GameDev Lab GitHub 저장소 보기](https://github.com/myoungjoon31/gamedev-lab)**
 
 ---
 
 ## 📫 Contact
 
-- **GitHub:** [MyoungJoonKim](https://github.com/MyoungJoonKim)
-- **Email:** xxmj96@gmail.com
+- **Portfolio:** [myoungjoon31.github.io/myoungjoon31](https://myoungjoon31.github.io/myoungjoon31)
+- **GitHub:** [github.com/myoungjoon31](https://github.com/myoungjoon31)
+- **Email:** [xxmj96@gmail.com](mailto:xxmj96@gmail.com)
