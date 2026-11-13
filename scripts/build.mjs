@@ -58,7 +58,7 @@ function media(p, prefix) {
 
 
 function projectResources(p,prefix){
- const downloads=(p.resources||[]).map(r=>`<div class="download-resource"><a class="resource-preview" href="${prefix}${e(r.previewSrc||r.src)}" target="_blank" rel="noopener noreferrer"><span>${e(r.label)}</span><span class="sr-only"> (새 탭 미리보기)</span></a><a class="download-label" href="${prefix}${e(r.src)}" download="${e(r.filename)}" aria-label="${e(r.label)} 다운로드">다운로드</a></div>`).join('');
+ const downloads=(p.resources||[]).map(r=>`<div class="download-resource"><a class="resource-preview" href="${prefix}${e(r.previewSrc||r.src)}" target="_blank" rel="noopener noreferrer"><span>${e(r.label)}</span><span class="resource-preview-label" aria-hidden="true">미리보기</span><span class="sr-only"> (새 탭 미리보기)</span></a><a class="download-label" href="${prefix}${e(r.src)}" download="${e(r.filename)}" aria-label="${e(r.label)} 다운로드">다운로드</a></div>`).join('');
  return downloads+`</div>`;
 }
 
