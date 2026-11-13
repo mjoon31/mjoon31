@@ -148,3 +148,6 @@ html:has(.home-page){scroll-snap-type:y mandatory;scroll-padding-top:0}.home-pag
 
 /* 경험 링크와 다음 게임 이동 화살표를 동일하게 표시합니다. */
 .experience-arrow,.next-project>span:last-child{font-size:26px;line-height:1.5;font-weight:400;color:var(--accent);text-align:right}
+
+/* 자료명은 핵심 시스템 소제목과 동일한 서식을 사용합니다. */
+.detail-page #resources .resource-preview,.detail-page #resources .resource-list>.resource-link{font-size:17px;font-weight:700;line-height:1.35;letter-spacing:-.04em}
