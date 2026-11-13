@@ -435,6 +435,14 @@ export const experience = [
     "slug": "slime-raising"
   },
   {
+    "time": "프로토타입 개발 중",
+    "type": "개인 프로젝트 · AI 협업",
+    "title": "햄포차",
+    "summary": "탐험·채집과 요리·포장마차 영업을 연결하는 Android 게임.",
+    "text": "게임 방향과 규칙을 직접 결정하고 AI와 초기 프로토타입을 개발하고 있습니다. Android 실기기와 전체 성장 흐름의 검증은 진행할 단계입니다.",
+    "slug": "ham-pocha"
+  },
+  {
     "time": "지속 학습",
     "type": "개인 학습",
     "title": "GameDev Lab",
