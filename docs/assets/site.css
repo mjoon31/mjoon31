@@ -182,3 +182,8 @@ button,input,select,textarea{font-family:var(--font)}
 
 .resource-preview-label{margin-left:auto;font-family:var(--font);font-size:12.65px;font-weight:400;line-height:1.8;letter-spacing:.04em;color:#91a4b3;white-space:nowrap}
 @media(max-width:600px){.resource-preview-label{font-size:11.385px}}
+
+/* 게임이 세 개일 때도 넓은 화면에서는 한 줄로 비교할 수 있습니다. */
+@media(min-width:1100px){.home-page .project-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.home-page .project-card-body{padding:18px}.home-page .card-title-row h3{font-size:clamp(21px,1.5vw,30px)}.home-page .project-overline{flex-wrap:wrap;gap:5px 10px}}
+
+.detail-cover.detail-placeholder figcaption{display:block}
