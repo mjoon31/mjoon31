@@ -22,7 +22,7 @@ export const site = {
 export const projects = [
   {
     "id": "01",
-    "resources": [{"src": "assets/resources/slime-raising/introduction.pdf", "label": "소개문서 PDF", "filename": "슬라임키우기_소개문서.pdf"}, {"src": "assets/resources/slime-raising/introduction.pptx", "label": "소개문서 PPTX", "previewSrc": "assets/resources/slime-raising/introduction.pdf", "filename": "슬라임키우기_소개문서.pptx"}, {"src": "assets/resources/slime-raising/gameplay.mp4", "label": "플레이 영상 MP4", "filename": "슬라임키우기_플레이영상.mp4"}],
+    "resources": [{"src": "assets/resources/slime-raising/introduction.pdf", "label": "소개문서 PDF", "filename": "슬라임키우기_소개문서.pdf"}, {"src": "assets/resources/slime-raising/introduction.pptx", "label": "소개문서 PPTX", "previewSrc": "assets/resources/slime-raising/introduction.pdf", "filename": "슬라임키우기_소개문서.pptx"}, {"src": "assets/resources/slime-raising/game-design.pdf", "label": "기획서 PDF", "filename": "슬라임키우기_기획서.pdf"}, {"src": "assets/resources/slime-raising/technical-development.pdf", "label": "기술개발문서 PDF", "filename": "슬라임키우기_기술개발문서.pdf"}, {"src": "assets/resources/slime-raising/data-tables.pdf", "label": "데이터테이블 PDF", "filename": "슬라임키우기_데이터테이블.pdf"}, {"src": "assets/resources/slime-raising/gameplay.mp4", "label": "플레이 영상 MP4", "filename": "슬라임키우기_플레이영상.mp4"}],
     "fullVideo": {"src":"assets/resources/slime-raising/gameplay.mp4","poster":"assets/resources/slime-raising/gameplay-poster.jpg"},
     "slug": "slime-raising",
     "title": "슬라임키우기",
