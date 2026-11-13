@@ -145,3 +145,6 @@ html:has(.home-page){scroll-snap-type:y mandatory;scroll-padding-top:0}.home-pag
 .detail-page .detail-toc nav a{font-size:14px}
 .detail-page .detail-toc nav a>span{font-size:12px}
 @media(max-width:600px){.detail-page .detail-toc nav a{font-size:13px}.detail-page .eyebrow,.detail-page .detail-section p.eyebrow{font-size:12px}}
+
+/* 경험 링크와 다음 게임 이동 화살표를 동일하게 표시합니다. */
+.experience-arrow,.next-project>span:last-child{font-size:26px;line-height:1.5;font-weight:400;color:var(--accent);text-align:right}
