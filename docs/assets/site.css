@@ -133,3 +133,8 @@ html:has(.home-page){scroll-snap-type:y mandatory;scroll-padding-top:0}.home-pag
 .download-resource .download-label{display:flex;align-items:center;justify-content:center;min-width:80px;min-height:48px;padding:12px 8px}
 .download-resource .download-label:hover{color:white;background:#31434c;border-radius:6px}
 .preview-format{font-size:10px;color:var(--muted)}
+
+/* 반복 배지 없이 번호와 기여 내용을 정렬합니다. */
+.contribution-list article{align-items:start;padding-block:20px;gap:20px}
+.contribution-list article>div>h3:first-child{margin-top:0;margin-bottom:9px}
+.contribution-index{padding-top:4px}
