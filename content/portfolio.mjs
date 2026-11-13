@@ -22,6 +22,8 @@ export const site = {
 export const projects = [
   {
     "id": "01",
+    "resources": [{"src": "assets/resources/slime-raising/introduction.pdf", "label": "소개문서 PDF", "filename": "슬라임키우기_소개문서.pdf"}, {"src": "assets/resources/slime-raising/introduction.pptx", "label": "소개문서 PPTX", "previewSrc": "assets/resources/slime-raising/introduction.pdf", "filename": "슬라임키우기_소개문서.pptx"}, {"src": "assets/resources/slime-raising/gameplay.mp4", "label": "플레이 영상 MP4", "filename": "슬라임키우기_플레이영상.mp4"}],
+    "fullVideo": {"src":"assets/resources/slime-raising/gameplay.mp4","poster":"assets/resources/slime-raising/gameplay-poster.jpg"},
     "slug": "slime-raising",
     "title": "슬라임키우기",
     "subtitle": "Slime Raising",
