@@ -198,3 +198,6 @@ button,input,select,textarea{font-family:var(--font)}
 .tool-icons .brand-icon{filter:saturate(.7);opacity:.88}
 
 .project-english-name{display:block;margin-top:4px;font-family:var(--font);font-size:12px;font-weight:400;line-height:1.5;letter-spacing:0;color:#58656f}
+
+/* 긴 기술 이름이 줄바꿈되어도 본문과 겹치지 않도록 배치 */
+.home-page .skill-expanded-title h3{position:relative;top:auto;left:auto;width:fit-content;max-width:100%;margin:calc(-1 * clamp(28px,2vw,45px) - 19px) -10px 12px}

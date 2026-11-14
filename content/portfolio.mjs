@@ -225,7 +225,7 @@ export const projects = [
     "tags": [
       "2인 팀",
       "3인 협동",
-      "NGO",
+      "NGO (Netcode for GameObjects)",
       "Steamworks.NET"
     ],
     "githubUrl": null,
@@ -241,7 +241,7 @@ export const projects = [
       },
       {
         "title": "멀티플레이",
-        "text": "NGO 기반 동기화와 Steam P2P 연동.",
+        "text": "NGO (Netcode for GameObjects) 기반 동기화와 Steam P2P 연동.",
         "stage": "담당 영역 · 목표 포함"
       },
       {
@@ -258,7 +258,7 @@ export const projects = [
     "systems": [
       {
         "title": "네트워크 동기화",
-        "text": "Unity NGO 기반 멀티플레이 동기화와 Steamworks.NET·Steam P2P 연동을 개발 범위로 두고 있습니다."
+        "text": "Unity NGO (Netcode for GameObjects) 기반 멀티플레이 동기화와 Steamworks.NET·Steam P2P 연동을 개발 범위로 두고 있습니다."
       },
       {
         "title": "공유되는 집의 상태",
@@ -429,7 +429,7 @@ export const skills = [
     "text": "게임플레이 로직과 데이터 처리 구현.\n객체지향 설계·자료구조·알고리즘 학습."
   },
   {
-    "title": "NGO · Steam P2P",
+    "title": "NGO (Netcode for GameObjects) · Steam P2P",
     "icon": "network",
     "text": "온라인 협동 게임의 동기화와 Steam P2P 연동 개발 중.\n세부 기능은 개발 목표를 포함합니다."
   },
