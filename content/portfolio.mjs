@@ -299,6 +299,7 @@ export const projects = [
   },
   {
     "id": "03",
+    "resources": [{"src": "assets/resources/ham-pocha/development-plan.pdf", "label": "개발기획서 PDF", "filename": "햄포차_개발기획서.pdf"}],
     "slug": "ham-pocha",
     "title": "햄포차",
     "subtitle": "Ham Pocha",
