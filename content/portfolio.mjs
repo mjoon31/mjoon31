@@ -190,8 +190,9 @@ export const projects = [
   {
     "id": "02",
     "slug": "house-haulers",
-    "title": "하우스 홀러스",
+    "title": "하우스 훌러스",
     "subtitle": "House Haulers",
+    "cardSubtitle": "House Haulers",
     "genre": "온라인 협동 생존 어드벤처",
     "platform": "Steam P2P 개발 목표",
     "engine": "Unity",
@@ -203,7 +204,7 @@ export const projects = [
     "statusKind": "progress",
     "statusNote": "공개 소개의 담당 영역에는 구현 예정 기능이 포함됩니다. 개별 기능의 완료 상태는 추가 확인이 필요합니다.",
     "thumbnail": "assets/images/house-placeholder.svg",
-    "thumbnailAlt": "하우스 홀러스 임시 커버. 실제 게임 화면이 아닌 세 플레이어의 협동을 표현한 그래픽.",
+    "thumbnailAlt": "하우스 훌러스 임시 커버. 실제 게임 화면이 아닌 세 플레이어의 협동을 표현한 그래픽.",
     "placeholder": true,
     "screenshots": [],
     "cardDescription": "운전·수리·자원 수집으로 집을 함께 옮기는 3인 온라인 협동 게임.",
@@ -309,6 +310,7 @@ export const projects = [
     "slug": "ham-pocha",
     "title": "햄포차",
     "subtitle": "Ham Pocha",
+    "cardSubtitle": "Ham Pocha",
     "genre": "탐험 · 요리 · 포장마차 경영",
     "platform": "Android · 싱글 플레이",
     "engine": "Unity 2022.3.62f3",
@@ -448,7 +450,7 @@ export const experience = [
   {
     "time": "개발 진행 중",
     "type": "팀 프로젝트",
-    "title": "하우스 홀러스",
+    "title": "하우스 훌러스",
     "summary": "2인 팀으로 만드는 3인 온라인 협동 게임.",
     "text": "2인 팀으로 3인 온라인 협동 게임을 개발하고 있습니다. 캐릭터 상호작용과 멀티플레이, 집의 협동 시스템을 담당 영역으로 두고 있습니다.",
     "slug": "house-haulers"

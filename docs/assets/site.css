@@ -196,3 +196,5 @@ button,input,select,textarea{font-family:var(--font)}
 
 /* 브랜드 색은 유지하면서 카드에서 채도와 강도를 살짝 낮춥니다. */
 .tool-icons .brand-icon{filter:saturate(.7);opacity:.88}
+
+.project-english-name{display:block;margin-top:4px;font-family:var(--font);font-size:12px;font-weight:400;line-height:1.5;letter-spacing:0;color:#58656f}
