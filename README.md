@@ -4,7 +4,7 @@
 
 Unity와 C#을 기반으로 게임 개발 역량을 쌓아가고 있는 신입 개발자입니다.
 
-개인 모바일 게임 개발 경험을 바탕으로, 현재는 **NGO와 Steam P2P를 활용한 온라인 협동 게임**을 개발하고 있습니다.
+개인 모바일 게임 개발 경험을 바탕으로, 현재는 **NGO(Netcode for GameObjects)와 Steam P2P를 활용한 온라인 협동 게임**을 개발하고 있습니다.
 
 🌐 **[My Website](https://mjoon31.github.io/mjoon31)**
 
@@ -16,7 +16,7 @@ Unity와 C#을 기반으로 게임 개발 역량을 쌓아가고 있는 신입 �
 |---|---|
 | Engine | Unity 2022.3 LTS |
 | Language | C# |
-| Networking | NGO, Steamworks.NET |
+| Networking | NGO(Netcode for GameObjects), Steamworks.NET |
 
 ---
 
@@ -54,7 +54,7 @@ Unity와 C#을 기반으로 게임 개발 역량을 쌓아가고 있는 신입 �
 
 **3인 온라인 협동 캐주얼 생존 어드벤처**
 
-`Unity` `C#` `NGO` `Steamworks.NET` `Steam P2P`
+`Unity` `C#` `NGO(Netcode for GameObjects)` `Steamworks.NET` `Steam P2P`
 
 **2인 팀 프로젝트 | 개발 진행 중**
 
@@ -62,7 +62,7 @@ Unity와 C#을 기반으로 게임 개발 역량을 쌓아가고 있는 신입 �
 
 **담당 개발 영역 및 주요 개발 목표**
 - 캐릭터 조작·상호작용·도구 장착 및 애니메이션 시스템
-- NGO 기반 멀티플레이 동기화 및 Steam P2P 연동
+- NGO(Netcode for GameObjects) 기반 멀티플레이 동기화 및 Steam P2P 연동
 - 집 운전·상태 관리·수리 및 물리 기반 협동 시스템
 - 거리 기반 보이스 채팅 및 무전기 통신 시스템
 - 게임 UI·콘텐츠 기획 및 밸런스 관리
