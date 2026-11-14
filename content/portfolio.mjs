@@ -189,6 +189,7 @@ export const projects = [
   },
   {
     "id": "02",
+    "resources": [{"src": "assets/resources/house-haulers/development-plan.pdf", "label": "개발기획서 PDF", "filename": "하우스홀러스_기획서.pdf"}],
     "slug": "house-haulers",
     "title": "하우스 훌러스",
     "subtitle": "House Haulers",
@@ -315,7 +316,8 @@ export const projects = [
     "platform": "Android · 싱글 플레이",
     "engine": "Unity 2022.3.62f3",
     "language": "C#",
-    "developmentPeriod": "개발 진행 중",
+    "additionalTechnologies": ["Firebase"],
+    "developmentPeriod": "2026.11.05 — 2026.11.21 (최초 계획)",
     "teamSize": "개인 프로젝트 · AI 협업",
     "role": "게임 방향·규칙 결정 · 설계·구현·검증 진행",
     "status": "개발 진행 중",
