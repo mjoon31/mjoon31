@@ -317,7 +317,7 @@ export const projects = [
     "engine": "Unity 2022.3.62f3",
     "language": "C#",
     "additionalTechnologies": ["Firebase"],
-    "developmentPeriod": "2026.11.05 — 2026.11.21 (최초 계획)",
+    "developmentPeriod": "2026.11.05 — 2026.11.21 (계획)",
     "teamSize": "개인 프로젝트 · AI 협업",
     "role": "게임 방향·규칙 결정 · 설계·구현·검증 진행",
     "status": "개발 진행 중",
