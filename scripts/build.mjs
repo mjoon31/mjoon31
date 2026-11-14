@@ -16,14 +16,19 @@ const icons = {
   unity: '<path d="m12 2 9 5v10l-9 5-9-5V7l9-5Zm0 0v10m9-5-9 5-9-5m9 5v10"/>',
   csharp: '<path d="m12 2 9 5v10l-9 5-9-5V7l9-5Z"/><text x="5.1" y="15.5" fill="currentColor" stroke="none" font-size="10" font-family="Arial" font-weight="bold">C#</text>',
   visualstudio: '<path d="m16 3 6 2v14l-6 2-9-8-4 4-2-1V8l2-1 4 4 9-8Zm0 4-6 5 6 5V7ZM3 10v4l2-2-2-2Z"/>',
+  firebase: '<path d="m4 17 2-14 5 9 3-6 6 12-8 4-8-5Zm0 0 7-5m3-6-3 6 9 6"/>',
   github: '<path d="M9 19c-4 1-4-2-6-2m12 5v-4c0-1-.3-1.5-.7-2 3.4-.4 6.7-1.6 6.7-7A5.4 5.4 0 0 0 19.5 5c.1-1-.1-2-.5-3-1.3 0-3 1-4 1.6a15 15 0 0 0-6 0C8 3 6.3 2 5 2c-.4 1-.6 2-.5 3A5.4 5.4 0 0 0 3 9c0 5.4 3.3 6.6 6.7 7-.4.5-.7 1-.7 2v4"/>',
   systems: '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><path d="M17 4v5H4v8h5m1 0h4"/>',
   network: '<circle cx="12" cy="5" r="3"/><circle cx="5" cy="18" r="3"/><circle cx="19" cy="18" r="3"/><path d="m10 8-4 7m8-7 4 7M8 18h8"/>',
   spark: '<path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7Z"/>'
 };
-const icon = (name, label = '', cls = '') => `<svg class="icon ${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" ${label ? `role="img" aria-label="${e(label)}"` : 'aria-hidden="true"'}>${icons[name] || icons.systems}</svg>`;
+const brandIcons={unity:'unity.svg',csharp:'csharp.svg',visualstudio:'visualstudio.svg',firebase:'firebase.svg',github:'github.svg'};
+const icon = (name, label = '', cls = '') => {
+  if(brandIcons[name])return `<img class="icon brand-icon icon-${name} ${cls}" src="${new URL(site.url).pathname}assets/icons/${brandIcons[name]}" width="24" height="24" alt="${e(label)}" decoding="async">`;
+  return `<svg class="icon ${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" ${label ? `role="img" aria-label="${e(label)}"` : 'aria-hidden="true"'}>${icons[name] || icons.systems}</svg>`;
+};
 const badges = values => `<ul class="tags" aria-label="기술과 프로젝트 정보">${values.map(t=>`<li>${e(t)}</li>`).join('')}</ul>`;
-const tools = p => `<ul class="tool-icons" aria-label="개발 도구">${p.technologies.map(name => `<li title="${e(name)}">${icon(({Unity:'unity','C#':'csharp','Visual Studio':'visualstudio'})[name] || 'systems', name)}</li>`).join('')}</ul>`;
+const tools = p => `<ul class="tool-icons" aria-label="개발 도구">${p.technologies.filter(name=>name!=='C#').map(name => {const label=name+((p.plannedTechnologies||[]).includes(name)?' · 도입 예정':'');return `<li title="${e(label)}">${icon(({Unity:'unity','C#':'csharp','Visual Studio':'visualstudio',Firebase:'firebase'})[name] || 'systems', label)}</li>`;}).join('')}</ul>`;
 const sectionHeading = (no, eyebrow, title, description = '') => `<div class="section-heading reveal"><div><p class="eyebrow"><span>${no}</span> ${eyebrow}</p><h2>${title}</h2></div>${description ? `<p class="section-description">${description}</p>` : ''}</div>`;
 const navItems = [['about','소개'],['projects','프로젝트'],['skills','기술 역량'],['experience','개발 경험']];
 
@@ -40,7 +45,7 @@ function shell({title, description, route='', body, prefix='./', detail=false, i
 function artwork(p,prefix){return p.cardArtwork ? `<div class="slime-card-art"><img class="card-scene" src="${prefix}${p.screenshots[0].src}" alt="" width="720" height="1560" loading="lazy"><img class="card-app-icon" src="${prefix}${p.thumbnail}" alt="${e(p.thumbnailAlt)}" width="1254" height="1254" loading="lazy"><img class="card-screen" src="${prefix}${p.screenshots[1].src}" alt="슬라임키우기 전투 화면" width="720" height="1560" loading="lazy"></div>` : `<img src="${prefix}${p.thumbnail}" alt="${e(p.thumbnailAlt)}" width="1000" height="625" loading="lazy" decoding="async">`;}
 
 function card(p, prefix='./') {
-  return `<article class="project-card reveal" aria-labelledby="project-${p.slug}"><a class="project-cover" href="${prefix}projects/${p.slug}/" tabindex="-1" aria-hidden="true">${artwork(p,prefix)}${p.placeholder?'<span class="cover-label">임시 커버 · 실제 게임 화면 준비 중</span>':''}</a><div class="project-card-body"><div class="project-overline"><span>${e(p.genre)}</span><span class="status ${p.statusKind}">${e(p.status)}</span></div><div class="card-title-row"><h3 id="project-${p.slug}"><a href="${prefix}projects/${p.slug}/">${e(p.title)}</a></h3>${tools(p)}</div><p class="project-description">${e(p.cardDescription || p.description)}</p><p class="project-role">${e(p.teamSize)}</p>${badges(p.tags.slice(0,3))}<div class="project-actions">${p.githubUrl?ext(p.githubUrl,`${icon('github')} GitHub Repository`,'repository-link'):'<span class="repository-link unavailable" aria-disabled="true">'+icon('github')+' 공개 저장소 준비 중</span>'}<a class="view-project" href="${prefix}projects/${p.slug}/" aria-label="${e(p.title)} 상세 페이지 보기">View Project <span aria-hidden="true">→</span></a></div></div></article>`;
+  return `<article class="project-card reveal" aria-labelledby="project-${p.slug}"><a class="project-cover" href="${prefix}projects/${p.slug}/" tabindex="-1" aria-hidden="true">${artwork(p,prefix)}${p.placeholder?'<span class="cover-label">임시 커버 · 실제 게임 화면 준비 중</span>':''}</a><div class="project-card-body"><div class="project-overline"><span>${e(p.genre)}</span><span class="status ${p.statusKind}">${e(p.status)}</span></div><div class="card-title-row"><h3 id="project-${p.slug}"><a href="${prefix}projects/${p.slug}/">${e(p.title)}</a></h3>${tools(p)}</div><p class="project-description">${e(p.cardDescription || p.description)}</p><p class="project-role">${e(p.teamSize)}</p>${badges(p.cardTags||p.tags.slice(0,3))}<div class="project-actions">${p.githubUrl?ext(p.githubUrl,`${icon('github')} GitHub Repository`,'repository-link'):'<span class="repository-link unavailable" aria-disabled="true">'+icon('github')+' 공개 저장소 준비 중</span>'}<a class="view-project" href="${prefix}projects/${p.slug}/" aria-label="${e(p.title)} 상세 페이지 보기">View Project <span aria-hidden="true">→</span></a></div></div></article>`;
 }
 
 function home() {

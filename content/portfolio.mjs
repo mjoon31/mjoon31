@@ -299,7 +299,13 @@ export const projects = [
   },
   {
     "id": "03",
-    "resources": [{"src": "assets/resources/ham-pocha/development-plan.pdf", "label": "개발기획서 PDF", "filename": "햄포차_개발기획서.pdf"}],
+    "resources": [
+      {
+        "src": "assets/resources/ham-pocha/development-plan.pdf",
+        "label": "개발기획서 PDF",
+        "filename": "햄포차_개발기획서.pdf"
+      }
+    ],
     "slug": "ham-pocha",
     "title": "햄포차",
     "subtitle": "Ham Pocha",
@@ -310,7 +316,7 @@ export const projects = [
     "developmentPeriod": "개발 진행 중",
     "teamSize": "개인 프로젝트 · AI 협업",
     "role": "게임 방향·규칙 결정 · 설계·구현·검증 진행",
-    "status": "프로토타입 개발 중",
+    "status": "개발 진행 중",
     "statusKind": "progress",
     "thumbnail": "assets/images/ham-pocha-placeholder.svg",
     "thumbnailAlt": "햄포차 임시 커버. 실제 게임 화면이 아닌 햄스터와 포장마차를 표현한 그래픽.",
@@ -318,7 +324,7 @@ export const projects = [
     "screenshots": [],
     "cardDescription": "숲에서 모은 재료로 요리하고, 햄스터 포장마차를 운영하는 Android 솔로 게임.",
     "description": "숲에서 재료를 모으고, 작은 포장마차에서 하루를 마무리합니다. 탐험·채집·가벼운 전투와 요리·영업을 연결하는 햄스터 모바일 게임을 개발하고 있습니다.",
-    "overview": "햄스터가 숲을 탐험하며 재료를 얻고, 마을의 포장마차에서 주문에 맞춰 조리하고 음식을 전달하는 솔로 게임입니다. 현재 탐험과 영업의 초기 프로토타입을 구성하고 있으며, 전체 성장 루프와 Android 실기기 검증은 진행할 단계입니다.",
+    "overview": "햄스터가 숲을 탐험하며 재료를 얻고, 마을의 포장마차에서 주문에 맞춰 조리하고 음식을 전달하는 솔로 게임입니다. 개발자의 Unity Editor 플레이 검수로 탐험·영업·수면의 핵심 루프 PoC를 확인했습니다. 로컬 저장·성장 기능과 Android 실기기 검증, Firebase 연동은 후속 개발 단계입니다.",
     "features": [
       "가상 조이스틱과 버튼을 사용하는 숲 탐험",
       "재료 채집·드롭과 가벼운 전투",
@@ -328,14 +334,17 @@ export const projects = [
     ],
     "technologies": [
       "Unity",
-      "C#"
+      "C#",
+      "Visual Studio",
+      "Firebase"
     ],
     "tags": [
       "Android",
       "개인 개발",
       "URP",
       "Input System",
-      "AI 협업"
+      "AI 협업",
+      "Firebase"
     ],
     "githubUrl": null,
     "gameplayVideoUrl": null,
@@ -384,14 +393,23 @@ export const projects = [
       {
         "title": "시간·피로와 영업 진행",
         "text": "게임의 시간, 활동에 따른 피로, 주문과 손님의 진행 속도를 관리하는 구성을 개발 중입니다."
+      },
+      {
+        "title": "로컬 저장과 Firebase 연동 방향",
+        "text": "로컬 JSON 저장을 우선 구성하고, Google/Firebase 계정 기반 저장을 도입하는 방향입니다. 클라우드 연동과 세션·보안 검증은 후속 개발 목표이며, 현재 적용 완료로 표시하지 않습니다."
       }
     ],
     "problem": {
       "title": "탐험과 포장마차 영업을 하나의 하루로",
       "context": "탐험에서는 이동·채집·전투를, 영업에서는 주문·조리·전달을 조작하므로 두 활동을 자연스럽게 연결하는 흐름이 필요합니다.",
       "approach": "게임 상태와 시간을 공통으로 관리하고, 탐험 입력과 영업 UI를 나누어 구성합니다. 개발자는 플레이 규칙과 우선순위를 결정하고 AI와 구현을 진행합니다.",
-      "result": "이동·탐험과 초기 주문·조리·전달 프로토타입을 구성한 단계입니다. 수익·성장·저장까지 포함한 전체 루프와 Android 실기기 동작은 추가 구현·검증이 남아 있습니다."
-    }
+      "result": "개발자가 Unity Editor에서 탐험·영업·수면을 이어가는 핵심 루프를 직접 플레이해 PoC를 확인했습니다. 로컬 저장·복원, 전체 성장 루프, Android 실기기와 Firebase 연동·보안 검증은 남아 있습니다."
+    },
+        "cardTags": [
+      "Android",
+      "URP",
+      "Firebase"
+    ]
   }
 ];
 

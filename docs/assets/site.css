@@ -187,3 +187,12 @@ button,input,select,textarea{font-family:var(--font)}
 @media(min-width:1100px){.home-page .project-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.home-page .project-card-body{padding:18px}.home-page .card-title-row h3{font-size:clamp(21px,1.5vw,30px)}.home-page .project-overline{flex-wrap:wrap;gap:5px 10px}}
 
 .detail-cover.detail-placeholder figcaption{display:block}
+
+/* 실제 브랜드 에셋을 사용하고 가로세로 비율을 보존합니다. */
+.brand-icon{display:inline-block;object-fit:contain;vertical-align:middle}
+.home-page .project-card .tool-icons .icon{width:23px;height:23px}
+.home-page .project-card .repository-link .icon{width:18px;height:18px}
+.detail-page .icon-github,.skill-item .icon-unity{filter:invert(1)}
+
+/* 브랜드 색은 유지하면서 카드에서 채도와 강도를 살짝 낮춥니다. */
+.tool-icons .brand-icon{filter:saturate(.7);opacity:.88}
