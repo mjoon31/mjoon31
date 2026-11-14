@@ -190,8 +190,8 @@ export const projects = [
   {
     "id": "02",
     "slug": "house-haulers",
-    "title": "House Haulers",
-    "subtitle": "하우스 홀러스",
+    "title": "하우스 홀러스",
+    "subtitle": "House Haulers",
     "genre": "온라인 협동 생존 어드벤처",
     "platform": "Steam P2P 개발 목표",
     "engine": "Unity",
@@ -203,7 +203,7 @@ export const projects = [
     "statusKind": "progress",
     "statusNote": "공개 소개의 담당 영역에는 구현 예정 기능이 포함됩니다. 개별 기능의 완료 상태는 추가 확인이 필요합니다.",
     "thumbnail": "assets/images/house-placeholder.svg",
-    "thumbnailAlt": "House Haulers 임시 커버. 실제 게임 화면이 아닌 세 플레이어의 협동을 표현한 그래픽.",
+    "thumbnailAlt": "하우스 홀러스 임시 커버. 실제 게임 화면이 아닌 세 플레이어의 협동을 표현한 그래픽.",
     "placeholder": true,
     "screenshots": [],
     "cardDescription": "운전·수리·자원 수집으로 집을 함께 옮기는 3인 온라인 협동 게임.",
@@ -438,20 +438,20 @@ export const skills = [
 
 export const experience = [
   {
-    "time": "개발 진행 중",
-    "type": "팀 프로젝트",
-    "title": "House Haulers",
-    "summary": "2인 팀으로 만드는 3인 온라인 협동 게임.",
-    "text": "2인 팀으로 3인 온라인 협동 게임을 개발하고 있습니다. 캐릭터 상호작용과 멀티플레이, 집의 협동 시스템을 담당 영역으로 두고 있습니다.",
-    "slug": "house-haulers"
-  },
-  {
     "time": "2026.03 — 2026.09",
     "type": "개인 프로젝트",
     "title": "슬라임키우기",
     "summary": "기획부터 전투·성장·게임 진행까지 단독 개발.",
     "text": "기획부터 게임플레이, UI, 사운드, 로컬라이제이션, 데이터 저장까지. 하나의 게임 흐름을 단독으로 연결한 경험입니다.",
     "slug": "slime-raising"
+  },
+  {
+    "time": "개발 진행 중",
+    "type": "팀 프로젝트",
+    "title": "하우스 홀러스",
+    "summary": "2인 팀으로 만드는 3인 온라인 협동 게임.",
+    "text": "2인 팀으로 3인 온라인 협동 게임을 개발하고 있습니다. 캐릭터 상호작용과 멀티플레이, 집의 협동 시스템을 담당 영역으로 두고 있습니다.",
+    "slug": "house-haulers"
   },
   {
     "time": "프로토타입 개발 중",
