@@ -17,6 +17,7 @@ Unity와 C#을 기반으로 게임 개발 역량을 쌓아가고 있는 신입 �
 | Engine | Unity 2022.3 LTS |
 | Language | C# |
 | Networking | NGO(Netcode for GameObjects), Steamworks.NET |
+| Backend | Firebase |
 
 ---
 
