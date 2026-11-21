@@ -305,11 +305,10 @@ export const projects = [
   {
     "id": "03",
     "resources": [
-      {"src": "assets/resources/ham-pocha/introduction.pdf", "label": "소개문서 PDF", "filename": "햄포차_소개문서.pdf"},
       {"src": "assets/resources/ham-pocha/introduction.pptx", "label": "소개문서 PPTX", "previewSrc": "assets/resources/ham-pocha/introduction.pdf", "filename": "햄포차_소개문서.pptx"},
-      {"src": "assets/resources/ham-pocha/game-design.pdf", "label": "기획서 PDF", "filename": "햄포차_기획서.pdf"},
-      {"src": "assets/resources/ham-pocha/technical-development.pdf", "label": "기술개발문서 PDF", "filename": "햄포차_기술개발문서.pdf"},
-      {"src": "assets/resources/ham-pocha/data-tables.pdf", "label": "데이터테이블 PDF", "filename": "햄포차_데이터테이블.pdf"}
+      {"src": "assets/resources/ham-pocha/game-design.pptx", "label": "기획서 PPTX", "previewSrc": "assets/resources/ham-pocha/game-design.pdf", "filename": "햄포차_기획서.pptx"},
+      {"src": "assets/resources/ham-pocha/technical-development.pptx", "label": "기술개발문서 PPTX", "previewSrc": "assets/resources/ham-pocha/technical-development.pdf", "filename": "햄포차_기술개발문서.pptx"},
+      {"src": "assets/resources/ham-pocha/data-tables.pptx", "label": "데이터테이블 PPTX", "previewSrc": "assets/resources/ham-pocha/data-tables.pdf", "filename": "햄포차_데이터테이블.pptx"}
     ],
     "slug": "ham-pocha",
     "title": "햄포차",
@@ -327,9 +326,10 @@ export const projects = [
     "role": "게임 설계 · AI 작업 범위·검수 기준 관리 · 실기기 검수",
     "status": "Android 테스트 빌드",
     "statusKind": "progress",
-    "thumbnail": "assets/images/ham-pocha-placeholder.svg",
-    "thumbnailAlt": "햄포차 임시 커버. 실제 게임 화면이 아닌 햄스터와 포장마차를 표현한 그래픽.",
-    "placeholder": true,
+    "thumbnail": "assets/media/ham-pocha/app-icon.png",
+    "thumbnailAlt": "햄포차 앱 아이콘",
+    "cardIllustration": "assets/media/ham-pocha/card-illustration.png",
+    "placeholder": false,
     "screenshots": [],
     "cardDescription": "숲에서 재료를 모으고, 직접 요리하고 서빙하며 나만의 포차를 키우는 3D 경영 게임.",
     "description": "숲에서 모은 식재료로 손님의 한 끼를 만듭니다. 채집과 직접 조리, 서빙과 가게 성장이 햄스터의 하루로 이어지는 3D 경영 게임입니다.",
@@ -376,6 +376,10 @@ export const projects = [
       {
         "label": "시스템 아키텍처 · GitHub Wiki",
         "url": "https://github.com/mjoon31/ham-pocha/wiki/System-Architecture"
+      },
+      {
+        "label": "스크립트 연결 구조 · GitHub Wiki",
+        "url": "https://github.com/mjoon31/ham-pocha/wiki/Script-Connections"
       },
       {
         "label": "AI 구현과 변경 관리 · GitHub Wiki",
