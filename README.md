@@ -74,28 +74,33 @@ Unity와 C#을 기반으로 게임 개발 역량을 쌓아가고 있는 신입 �
 
 ---
 
+<img src="docs/assets/media/ham-pocha/app-icon.png"
+     alt="햄포차 앱 아이콘"
+     width="140"
+     align="left" />
+
 ### 03. 햄포차 (Ham Pocha)
 
-**탐험·요리·포장마차 경영 모바일 게임**
+**3D 탐험·요리·포장마차 경영 게임**
 
-`Unity` `C#` `Firebase` `AI` `Android` `Single Player`
+`Unity` `C#` `URP` `Input System` `Firebase` `Android`
 
-**개인 프로젝트 · AI 협업 | 프로토타입 개발 중**
+**개인 프로젝트 · AI 협업 | Android 테스트 빌드**
 
-햄스터가 숲을 탐험하며 재료를 모으고, 마을의 포장마차에서 주문에 맞춰 요리하고 음식을 전달하는 Android 게임입니다.
+<br clear="left" />
 
-게임의 방향·규칙·우선순위는 직접 결정하고, AI와 설계·구현·검증을 함께 진행하고 있습니다.
+햄스터가 되어 계절 숲에서 식재료를 모으고, 마을 포차에서 주문에 맞춰 직접 조리하고 서빙합니다. 영업 수익으로 메뉴와 화로를 늘려 야외 꼬치 판매를 시작하고, 새 숲에서 다음 메뉴의 재료를 찾습니다.
 
-**주요 개발 영역 및 목표**
-- 가상 조이스틱과 버튼 기반 이동·탐험 및 재료 채집·드롭·가벼운 전투
-- 주문 접수·재료 투입·조리·음식 전달을 연결한 포장마차 영업
-- 월드 시계·피로·취침·지역 이동을 통한 탐험과 영업의 연결
-- Unity URP 기반 카툰풍 렌더링 및 Input System 기반 모바일 입력
-- 로컬 JSON 저장·복원과 성장 구조, Google/Firebase 계정 기반 저장 연동 목표
+**주요 구현**
+- **탐험과 재방문:** 숲의 채집·전투와 미니맵을 연결하고, 저장을 이어갈 때 같은 방문에서 이미 수집한 상태를 복원합니다.
+- **실내외 영업:** 공유 냉장고에서 재료를 꺼내 실내 주문을 처리하고, 야외 화로에는 조리를 예약합니다. 화면을 바꿔도 조리와 판매가 이어지며, 마감 시 미완성 예약의 재료를 돌려줍니다.
+- **진행 저장:** 로컬 JSON, Firebase Authentication, Cloud Firestore를 연결해 계정별 진행을 저장합니다. 주문·재고·가구 배치는 씬 객체의 저장 ID를 기준으로 복원합니다.
 
-*Unity Editor에서 탐험·영업·수면을 이어가는 핵심 루프의 PoC를 직접 플레이해 확인했습니다. 로컬 저장·성장 기능, Android 실기기 검증 및 Firebase 연동은 후속 개발 단계입니다.*
+**개발과 검수**
 
-**[프로젝트 상세 소개 보기](https://mjoon31.github.io/mjoon31/projects/ham-pocha/)** · 공개 저장소 준비 중
+게임 규칙과 작업 범위, 검수 기준을 직접 정하고, AI에 구현·도구 제작·검사를 맡겼습니다. 요청부터 피드백, 수정, 재검증까지 이슈와 커밋에 기록했습니다. 이전 Android 빌드에서는 실기기로 플레이와 기본 저장 복원을 확인했고, 이후 변경된 영업·저장 흐름은 Unity 편집 모드에서 항목별로 검사했습니다.
+
+**[프로젝트 상세 소개](https://mjoon31.github.io/mjoon31/projects/ham-pocha/)** · **[프로젝트 자료](https://mjoon31.github.io/mjoon31/projects/ham-pocha/#resources)** · **[공개 저장소](https://github.com/mjoon31/ham-pocha)** · **[개발 위키](https://github.com/mjoon31/ham-pocha/wiki)**
 
 ---
 
