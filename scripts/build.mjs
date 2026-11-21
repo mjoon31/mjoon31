@@ -80,11 +80,18 @@ function fullPlayer(p,prefix){
  return p.fullVideo?`<div class="film-player" data-film-player><video controls playsinline preload="metadata" poster="${prefix}${e(p.fullVideo.poster)}" aria-label="${e(p.title)} 전체 플레이 영상"><source src="${prefix}${e(p.fullVideo.src)}" type="video/mp4">동영상 재생을 지원하지 않는 브라우저입니다.</video><button class="film-center" aria-label="영상 재생" hidden>▶</button><span class="film-speed" role="status" hidden>2×</span><button class="film-controls-trigger" aria-label="재생 조작 바 표시" hidden></button><div class="film-controls" hidden><input class="film-seek" type="range" min="0" max="100" value="0" step="0.1" aria-label="영상 재생 위치"><div class="film-toolbar"><button data-play aria-label="재생">▶</button><span class="film-time" aria-live="off">0:00 / 0:00</span><button data-mute aria-label="음소거">음소거</button><button data-fullscreen aria-label="전체화면">전체화면</button></div></div><p class="film-error" role="status" hidden>영상을 불러오지 못했습니다. 하단 프로젝트 자료의 다운로드 링크로 확인해주세요.</p></div>`:'';
 }
 
+function validationDetails(problem, copy) {
+  const checks = problem.validation.map(([label, text]) =>
+    `<li><strong>${e(label)}</strong>: ${e(text)}</li>`
+  ).join('');
+  return `<dl class="problem-steps"><div><dt>문제 상황</dt><dd>${copy(problem.context)}</dd></div><div><dt>개선 과정</dt><dd>${copy(problem.approach)}</dd></div><div><dt>검증 결과와 확인 사항</dt><dd><ul class="feature-list">${checks}</ul><p>보관 중인 Android 테스트 APK는 <strong>${e(problem.apkVersion)}</strong>입니다. ${e(problem.validationNote)}</p></dd></div></dl>`;
+}
+
 function detail(p, index) {
   const prefix='../../';
   const other=projects.filter(x=>x.slug!==p.slug);
   const hasGameplayContent = Boolean(p.gameplayContent?.length);
-  const detailCopy = hasGameplayContent ? lines : e;
+  const detailCopy = hasGameplayContent ? value => e(value).replaceAll('\n', '<br>') : e;
   const flow = `<div class="flow-diagram" role="group" aria-label="${e(p.architectureLabel)}"><p class="mono">${e(p.architectureLabel)}</p><ol>${p.flow.map(t=>`<li>${e(t)}</li>`).join('')}</ol></div>`;
   const articles = items => `<div class="system-list">${items.map(({title,text})=>`<article><h3>${e(title)}</h3><p>${detailCopy(text)}</p></article>`).join('')}</div>`;
   const contributions = {
@@ -98,7 +105,7 @@ function detail(p, index) {
     id: 'systems',
     label: hasGameplayContent ? '시스템 설계' : '핵심 시스템',
     eyebrow: 'CORE SYSTEMS',
-    title: '플레이를 받치는 구조',
+    title: p.systemsTitle ?? '플레이를 받치는 구조',
     body: (hasGameplayContent ? '' : flow) + articles(p.systems),
   };
   const sections = [
@@ -107,15 +114,14 @@ function detail(p, index) {
       label: hasGameplayContent ? '핵심 플레이' : '게임 개요',
       eyebrow: 'GAME OVERVIEW',
       title: hasGameplayContent ? '숲에서 포차까지, 햄스터의 하루' : '어떤 게임인가요?',
-      body: `<p class="lead">${lines(p.overview)}</p>${hasGameplayContent ? flow : `<ul class="feature-list">${p.features.map(t=>`<li>${e(t)}</li>`).join('')}</ul>`}${badges(p.tags)}`,
+      body: `<p class="lead">${hasGameplayContent ? detailCopy(p.overview) : lines(p.overview)}</p>${hasGameplayContent ? flow + articles(p.gameplayContent) : `<ul class="feature-list">${p.features.map(t=>`<li>${e(t)}</li>`).join('')}</ul>`}${badges(p.tags)}`,
     },
     {
       id: 'gameplay',
-      label: hasGameplayContent ? '게임 콘텐츠' : '플레이 화면',
+      label: '플레이 화면',
       eyebrow: 'GAMEPLAY',
-      title: hasGameplayContent ? '하루를 채우는 플레이 콘텐츠' : '플레이 들여다보기',
-      body: hasGameplayContent ? articles(p.gameplayContent) :
-        `${media(p,prefix)}${p.fullVideo?`<div class="full-gameplay"><h3>전체 플레이 영상</h3>${fullPlayer(p,prefix)}<p class="film-help">화면 오른쪽을 누르고 있는 동안 2배속으로 재생됩니다.</p></div>`:''}`,
+      title: '플레이 들여다보기',
+      body: `${media(p,prefix)}${p.fullVideo?`<div class="full-gameplay"><h3>전체 플레이 영상</h3>${fullPlayer(p,prefix)}<p class="film-help">화면 오른쪽을 누르고 있는 동안 2배속으로 재생됩니다.</p></div>`:''}`,
     },
     ...(hasGameplayContent ? [systems, contributions] : [contributions, systems]),
     {
@@ -123,7 +129,7 @@ function detail(p, index) {
       label: hasGameplayContent ? '수정과 검증' : '개발과 문제 해결',
       eyebrow: 'DEVELOPMENT & PROBLEM SOLVING',
       title: p.problem.title,
-      body: `<dl class="problem-steps">${[['맥락',p.problem.context],['접근',p.problem.approach],['현재 결과',p.problem.result]].map(([k,v])=>`<div><dt>${k}</dt><dd>${lines(v)}</dd></div>`).join('')}</dl>`,
+      body: p.problem.validation ? validationDetails(p.problem, detailCopy) : `<dl class="problem-steps">${[['맥락',p.problem.context],['접근',p.problem.approach],['현재 결과',p.problem.result]].map(([k,v])=>`<div><dt>${k}</dt><dd>${lines(v)}</dd></div>`).join('')}</dl>`,
     },
     {
       id: 'resources',
