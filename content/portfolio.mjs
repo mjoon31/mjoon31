@@ -432,8 +432,7 @@ export const projects = [
       "URP",
       "Firebase"
     ],
-    "systemsTitle": "플레이를 받치는 구조",
-    "gameplayTitle": "플레이 콘텐츠"
+    "systemsTitle": "플레이를 받치는 구조"
   }
 ];
 
