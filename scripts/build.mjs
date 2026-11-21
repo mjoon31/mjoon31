@@ -64,7 +64,10 @@ function media(p, prefix) {
 
 function projectResources(p,prefix){
  const downloads=(p.resources||[]).map(r=>`<div class="download-resource"><a class="resource-preview" href="${prefix}${e(r.previewSrc||r.src)}" target="_blank" rel="noopener noreferrer"><span>${e(r.label)}</span><span class="resource-preview-label" aria-hidden="true">미리보기</span><span class="sr-only"> (새 탭 미리보기)</span></a><a class="download-label" href="${prefix}${e(r.src)}" download="${e(r.filename)}" aria-label="${e(r.label)} 다운로드">다운로드</a></div>`).join('');
- return downloads+`</div>`;
+ const references = (p.referenceLinks || []).map(({url, label}) =>
+   ext(url, e(label), 'resource-link')
+ ).join('');
+ return downloads + references + `</div>`;
 }
 
 function fullPlayer(p,prefix){
@@ -74,14 +77,62 @@ function fullPlayer(p,prefix){
 function detail(p, index) {
   const prefix='../../';
   const other=projects.filter(x=>x.slug!==p.slug);
+  const hasGameplayContent = Boolean(p.gameplayContent?.length);
+  const detailCopy = hasGameplayContent ? lines : e;
+  const flow = `<div class="flow-diagram" role="group" aria-label="${e(p.architectureLabel)}"><p class="mono">${e(p.architectureLabel)}</p><ol>${p.flow.map(t=>`<li>${e(t)}</li>`).join('')}</ol></div>`;
+  const articles = items => `<div class="system-list">${items.map(({title,text})=>`<article><h3>${e(title)}</h3><p>${detailCopy(text)}</p></article>`).join('')}</div>`;
+  const contributions = {
+    id: 'contributions',
+    label: hasGameplayContent ? 'AI 협업과 작업 관리' : '담당 작업',
+    eyebrow: hasGameplayContent ? 'AI DEVELOPMENT WORKFLOW' : 'MY CONTRIBUTIONS',
+    title: p.contributionsTitle,
+    body: `<p>${detailCopy(p.contributionsNote)}</p><div class="contribution-list">${p.contributions.map((c,i)=>`<article><span class="contribution-index mono">0${i+1}</span><div>${c.stage&&c.stage!=='구현 이력'?`<span class="quiet-label">${e(c.stage)}</span>`:''}<h3>${e(c.title)}</h3><p>${detailCopy(c.text)}</p></div></article>`).join('')}</div>`,
+  };
+  const systems = {
+    id: 'systems',
+    label: hasGameplayContent ? '시스템 설계' : '핵심 시스템',
+    eyebrow: 'CORE SYSTEMS',
+    title: '플레이를 받치는 구조',
+    body: (hasGameplayContent ? '' : flow) + articles(p.systems),
+  };
+  const sections = [
+    {
+      id: 'overview',
+      label: hasGameplayContent ? '핵심 플레이' : '게임 개요',
+      eyebrow: 'GAME OVERVIEW',
+      title: hasGameplayContent ? '숲에서 포차까지, 햄스터의 하루' : '어떤 게임인가요?',
+      body: `<p class="lead">${lines(p.overview)}</p>${hasGameplayContent ? flow : `<ul class="feature-list">${p.features.map(t=>`<li>${e(t)}</li>`).join('')}</ul>`}${badges(p.tags)}`,
+    },
+    {
+      id: 'gameplay',
+      label: hasGameplayContent ? '게임 콘텐츠' : '플레이 화면',
+      eyebrow: 'GAMEPLAY',
+      title: hasGameplayContent ? '하루를 채우는 플레이 콘텐츠' : '플레이 들여다보기',
+      body: hasGameplayContent ? articles(p.gameplayContent) :
+        `${media(p,prefix)}${p.fullVideo?`<div class="full-gameplay"><h3>전체 플레이 영상</h3>${fullPlayer(p,prefix)}<p class="film-help">화면 오른쪽을 누르고 있는 동안 2배속으로 재생됩니다.</p></div>`:''}`,
+    },
+    ...(hasGameplayContent ? [systems, contributions] : [contributions, systems]),
+    {
+      id: 'problem-solving',
+      label: hasGameplayContent ? '수정과 검증' : '개발과 문제 해결',
+      eyebrow: 'DEVELOPMENT & PROBLEM SOLVING',
+      title: p.problem.title,
+      body: `<dl class="problem-steps">${[['맥락',p.problem.context],['접근',p.problem.approach],['현재 결과',p.problem.result]].map(([k,v])=>`<div><dt>${k}</dt><dd>${lines(v)}</dd></div>`).join('')}</dl>`,
+    },
+    {
+      id: 'resources',
+      label: '프로젝트 자료',
+      eyebrow: 'PROJECT RESOURCES',
+      title: '프로젝트 자료',
+      body: `<div class="resource-list">${p.githubUrl?`<a class="resource-link" href="${e(p.githubUrl)}" target="_blank" rel="noopener noreferrer">${icon('github')} GitHub Repository<span class="sr-only"> (새 탭)</span></a>`:'<p>공개 저장소 준비 중</p>'}${projectResources(p,prefix)}`,
+    },
+  ];
+  const sectionNumber = index => String(index + 1).padStart(2, '0');
   return shell({title:`${p.title} · 김명준의 게임 개발 포트폴리오`,description:p.description,route:`projects/${p.slug}/`,prefix,detail:true,image:p.thumbnail,body:`<main id="main" class="detail-main"><div class="container"><nav class="breadcrumb" aria-label="현재 위치"><a href="../../#projects">프로젝트</a><span aria-hidden="true">/</span><span aria-current="page">${e(p.title)}</span></nav><section class="project-hero" aria-labelledby="detail-title"><div class="detail-title-row hero-entry"><div><p class="eyebrow">PROJECT ${p.id} <span>/ ${e(p.subtitle)}</span></p><h1 id="detail-title">${e(p.title)}</h1><p class="detail-subtitle">${lines(p.description)}</p></div>${p.statusKind==='history'?'':`<span class="status ${p.statusKind}"><i aria-hidden="true"></i>${e(p.status)}</span>`}</div><figure class="detail-cover hero-entry${p.cardArtwork?' detail-app-icon':''}${p.placeholder?' detail-placeholder':''}">${p.cardArtwork?`<img src="${prefix}${p.thumbnail}" alt="${e(p.thumbnailAlt)}" width="1254" height="1254">`:artwork(p,prefix)}<figcaption>${p.placeholder?'임시 커버 · 실제 게임 스크린샷이 아닙니다.':'게임 대표 화면'}</figcaption></figure><dl class="project-facts">${[['장르',p.genre],['플랫폼',p.platform],['개발 기간',p.developmentPeriod],['개발 인원',p.teamSize],['담당 역할',p.role],['기술',[p.engine,p.language,...(p.additionalTechnologies||[])].join(' / ')]].map(([k,v])=>`<div><dt>${e(k)}</dt><dd>${e(v)}</dd></div>`).join('')}</dl></section></div>
-<div class="detail-body container"><aside class="detail-toc"><p class="mono">IN THIS PROJECT</p><nav aria-label="프로젝트 목차">${[['overview','게임 개요'],['gameplay','플레이 화면'],['contributions','담당 작업'],['systems','핵심 시스템'],['problem-solving','개발과 문제 해결'],['resources','프로젝트 자료']].map(([id,t],i)=>`<a href="#${id}"><span>0${i+1}</span>${t}</a>`).join('')}</nav><a class="small-link" href="../../#projects">← 프로젝트 목록</a></aside><div class="detail-content">
-<section id="overview" class="detail-section reveal"><p class="eyebrow">01 / GAME OVERVIEW</p><h2>어떤 게임인가요?</h2><p class="lead">${lines(p.overview)}</p><ul class="feature-list">${p.features.map(t=>`<li>${e(t)}</li>`).join('')}</ul>${badges(p.tags)}</section>
-<section id="gameplay" class="detail-section reveal"><p class="eyebrow">02 / GAMEPLAY</p><h2>플레이 들여다보기</h2>${media(p,prefix)}${p.fullVideo?`<div class="full-gameplay"><h3>전체 플레이 영상</h3>${fullPlayer(p,prefix)}<p class="film-help">화면 오른쪽을 누르고 있는 동안 2배속으로 재생됩니다.</p></div>`:''}</section>
-<section id="contributions" class="detail-section reveal"><p class="eyebrow">03 / MY CONTRIBUTIONS</p><h2>${e(p.contributionsTitle)}</h2><p>${e(p.contributionsNote)}</p><div class="contribution-list">${p.contributions.map((c,i)=>`<article><span class="contribution-index mono">0${i+1}</span><div>${c.stage&&c.stage!=='구현 이력'?`<span class="quiet-label">${e(c.stage)}</span>`:''}<h3>${e(c.title)}</h3><p>${e(c.text)}</p></div></article>`).join('')}</div></section>
-<section id="systems" class="detail-section reveal"><p class="eyebrow">04 / CORE SYSTEMS</p><h2>플레이를 받치는 구조</h2><div class="flow-diagram" role="group" aria-label="${e(p.architectureLabel)}"><p class="mono">${e(p.architectureLabel)}</p><ol>${p.flow.map(t=>`<li>${e(t)}</li>`).join('')}</ol></div><div class="system-list">${p.systems.map(s=>`<article><h3>${e(s.title)}</h3><p>${e(s.text)}</p></article>`).join('')}</div></section>
-<section id="problem-solving" class="detail-section reveal"><p class="eyebrow">05 / DEVELOPMENT & PROBLEM SOLVING</p><h2>${e(p.problem.title)}</h2><dl class="problem-steps">${[['맥락',p.problem.context],['접근',p.problem.approach],['현재 결과',p.problem.result]].map(([k,v])=>`<div><dt>${k}</dt><dd>${lines(v)}</dd></div>`).join('')}</dl></section>
-<section id="resources" class="detail-section reveal"><p class="eyebrow">06 / PROJECT RESOURCES</p><h2>프로젝트 자료</h2><div class="resource-list">${p.githubUrl?`<a class="resource-link" href="${e(p.githubUrl)}" target="_blank" rel="noopener noreferrer">${icon('github')} GitHub Repository<span class="sr-only"> (새 탭)</span></a>`:'<p>공개 저장소 준비 중</p>'}${projectResources(p,prefix)}</section>
+<div class="detail-body container"><aside class="detail-toc"><p class="mono">IN THIS PROJECT</p><nav aria-label="프로젝트 목차">${sections.map(({id,label},i)=>`<a href="#${id}"><span>${sectionNumber(i)}</span>${e(label)}</a>`).join('')}</nav><a class="small-link" href="../../#projects">← 프로젝트 목록</a></aside><div class="detail-content">
+${sections.map(({id,eyebrow,title,body},i) =>
+  `<section id="${id}" class="detail-section reveal"><p class="eyebrow">${sectionNumber(i)} / ${eyebrow}</p><h2>${e(title)}</h2>${body}</section>`
+).join('\n')}
 <section class="other-projects section"><div class="container"><div class="section-heading"><div><p class="eyebrow">KEEP EXPLORING</p><h2>다른 게임 보러가기</h2></div><a class="small-link" href="../../#projects">전체 프로젝트</a></div>${other.map(x=>`<a class="next-project" href="../${x.slug}/"><span class="mono">${projects.indexOf(x)>index?'NEXT':'PREVIOUS'} PROJECT / ${x.id}</span><strong>${e(x.title)}</strong><span aria-hidden="true">→</span></a>`).join('')}</div></section></div></div></main>`});
 }
 

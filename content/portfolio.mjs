@@ -305,39 +305,53 @@ export const projects = [
   {
     "id": "03",
     "resources": [
-      {
-        "src": "assets/resources/ham-pocha/development-plan.pdf",
-        "label": "개발기획서 PDF",
-        "filename": "햄포차_개발기획서.pdf"
-      }
+      {"src": "assets/resources/ham-pocha/introduction.pdf", "label": "소개문서 PDF", "filename": "햄포차_소개문서.pdf"},
+      {"src": "assets/resources/ham-pocha/introduction.pptx", "label": "소개문서 PPTX", "previewSrc": "assets/resources/ham-pocha/introduction.pdf", "filename": "햄포차_소개문서.pptx"},
+      {"src": "assets/resources/ham-pocha/game-design.pdf", "label": "기획서 PDF", "filename": "햄포차_기획서.pdf"},
+      {"src": "assets/resources/ham-pocha/technical-development.pdf", "label": "기술개발문서 PDF", "filename": "햄포차_기술개발문서.pdf"},
+      {"src": "assets/resources/ham-pocha/data-tables.pdf", "label": "데이터테이블 PDF", "filename": "햄포차_데이터테이블.pdf"}
     ],
     "slug": "ham-pocha",
     "title": "햄포차",
     "subtitle": "Ham Pocha",
     "cardSubtitle": "Ham Pocha",
     "genre": "탐험 · 요리 · 포장마차 경영",
-    "platform": "Android · 싱글 플레이",
+    "platform": "Android · 가로 화면 · 싱글 플레이",
     "engine": "Unity 2022.3.62f3",
     "language": "C#",
-    "additionalTechnologies": ["Firebase"],
+    "additionalTechnologies": [
+      "Firebase"
+    ],
     "developmentPeriod": "2026.11.05 — 2026.11.21 (계획)",
     "teamSize": "개인 프로젝트 · AI 협업",
-    "role": "게임 방향·규칙 결정 · 설계·구현·검증 진행",
-    "status": "개발 진행 중",
+    "role": "게임 설계 · AI 작업 범위·검수 기준 관리 · 실기기 검수",
+    "status": "Android 테스트 빌드",
     "statusKind": "progress",
     "thumbnail": "assets/images/ham-pocha-placeholder.svg",
     "thumbnailAlt": "햄포차 임시 커버. 실제 게임 화면이 아닌 햄스터와 포장마차를 표현한 그래픽.",
     "placeholder": true,
     "screenshots": [],
-    "cardDescription": "숲에서 모은 재료로 요리하고, 햄스터 포장마차를 운영하는 Android 솔로 게임.",
-    "description": "숲에서 재료를 모으고, 작은 포장마차에서 하루를 마무리합니다. 탐험·채집·가벼운 전투와 요리·영업을 연결하는 햄스터 모바일 게임을 개발하고 있습니다.",
-    "overview": "햄스터가 숲을 탐험하며 재료를 얻고, 마을의 포장마차에서 주문에 맞춰 조리하고 음식을 전달하는 솔로 게임입니다. 개발자의 Unity Editor 플레이 검수로 탐험·영업·수면의 핵심 루프 PoC를 확인했습니다. 로컬 저장·성장 기능과 Android 실기기 검증, Firebase 연동은 후속 개발 단계입니다.",
-    "features": [
-      "가상 조이스틱과 버튼을 사용하는 숲 탐험",
-      "재료 채집·드롭과 가벼운 전투",
-      "주문·재료 투입·조리·음식 전달을 연결한 영업",
-      "탐험과 영업을 연결하는 시간·피로 관리",
-      "숲과 포장마차를 확장하는 성장 구조 목표"
+    "cardDescription": "숲에서 재료를 모으고, 직접 요리하고 서빙하며 나만의 포차를 키우는 3D 경영 게임.",
+    "description": "숲에서 모은 식재료로 손님의 한 끼를 만듭니다. 채집과 직접 조리, 서빙과 가게 성장이 햄스터의 하루로 이어지는 3D 경영 게임입니다.",
+    "overview": "오늘 팔고 싶은 메뉴가 숲에서 무엇을 찾을지 정하고, 장사로 번 골드와 경험치가 다음 탐험과 영업의 선택지를 넓혀 줍니다. 플레이어는 숲과 마을을 오가며 재료를 준비하고, 손님의 주문에 맞춰 직접 한 끼를 만듭니다. 하루가 끝나면 영업을 정리하고 집에서 쉬며 다음 날을 준비합니다.",
+    "features": [],
+    "gameplayContent": [
+      {
+        "title": "계절 숲 탐험과 재료 수집",
+        "text": "계절마다 풍경과 재료가 다른 숲을 탐험합니다. 채집과 가벼운 전투로 메뉴에 필요한 재료를 얻고, 미니맵에서 출입구와 수집 대상을 확인합니다. 밤에는 몬스터가 추격하고 공격 전에 경고가 나타납니다. 채집을 더 이어갈지, 모은 재료를 지켜 마을로 돌아갈지 판단해야 합니다."
+      },
+      {
+        "title": "실내에서 직접 조리하고 서빙하기",
+        "text": "숲에서 가져온 재료를 공유 냉장고에 넣습니다. 주문을 받은 뒤 필요한 재료를 조리대에 하나씩 넣고, 완성된 음식을 손님에게 직접 가져갑니다. 여러 주문이 겹치면 재료 준비, 조리, 음식 전달의 순서를 정합니다."
+      },
+      {
+        "title": "야외 판매와 포차 성장",
+        "text": "야외에서는 화로마다 꼬치 조리를 예약할 수 있습니다. 조리가 끝난 꼬치는 자동 진열되고, 찾아온 손님이 구매해 테이블에서 식사합니다. 판매 수익과 경험치는 새 메뉴, 음식 강화, 화로와 탐험 지역 확장으로 이어집니다."
+      },
+      {
+        "title": "마을의 하루와 집 꾸미기",
+        "text": "개점과 마감, 주민의 귀가와 밤 수면이 하루의 흐름을 만듭니다. 집에서는 가구의 위치와 방향을 바꾸거나 창고에 보관하고, 벽 마감을 바꿔 공간을 꾸밀 수 있습니다."
+      }
     ],
     "technologies": [
       "Unity",
@@ -353,66 +367,88 @@ export const projects = [
       "AI 협업",
       "Firebase"
     ],
-    "githubUrl": null,
-    "gameplayVideoUrl": null,
-    "downloadUrl": null,
-    "contributionsTitle": "게임 방향을 결정하고, 프로토타입으로 연결하기",
-    "contributionsNote": "게임의 방향·규칙·우선순위는 직접 결정하고, AI와 설계·구현·검증을 함께 진행합니다. 아래 내용은 초기 프로토타입의 구성 범위이며 전체 기능의 검증 완료를 의미하지 않습니다.",
-    "contributions": [
+    "githubUrl": "https://github.com/mjoon31/ham-pocha",
+    "referenceLinks": [
       {
-        "title": "탐험과 영업의 기획",
-        "text": "숲에서 재료를 얻고 포장마차에서 요리·판매하는 핵심 루프와 모바일 조작 방향을 결정했습니다.",
-        "stage": "직접 결정"
+        "label": "게임 규칙과 영업 흐름 · GitHub Wiki",
+        "url": "https://github.com/mjoon31/ham-pocha/wiki/Core-Loop-and-Business"
       },
       {
-        "title": "이동·탐험 프로토타입",
-        "text": "이동 입력, 가상 조이스틱, 채집·드롭과 가벼운 전투를 구성하고 있습니다.",
-        "stage": "AI 협업 · 검증 진행"
+        "label": "시스템 아키텍처 · GitHub Wiki",
+        "url": "https://github.com/mjoon31/ham-pocha/wiki/System-Architecture"
       },
       {
-        "title": "주문·조리·전달 프로토타입",
-        "text": "주문을 받고 재료를 넣어 조리한 뒤, 가방에서 음식을 골라 손님에게 전달하는 흐름을 구성하고 있습니다.",
-        "stage": "AI 협업 · 검증 진행"
+        "label": "AI 구현과 변경 관리 · GitHub Wiki",
+        "url": "https://github.com/mjoon31/ham-pocha/wiki/AI-Implementation-Management"
       },
       {
-        "title": "하루의 흐름과 게임 상태",
-        "text": "월드 시계, 피로, 취침과 지역 이동을 연결하고 있습니다. 저장·복원과 전체 성장 흐름은 후속 구현·검증 대상입니다.",
-        "stage": "개발 진행 중"
+        "label": "AI 에디터 도구 · GitHub Wiki",
+        "url": "https://github.com/mjoon31/ham-pocha/wiki/AI-Editor-Tools"
+      },
+      {
+        "label": "검증 현황 · GitHub Wiki",
+        "url": "https://github.com/mjoon31/ham-pocha/wiki/Validation-and-Status"
       }
     ],
-    "architectureLabel": "목표 플레이 흐름",
+    "gameplayVideoUrl": null,
+    "downloadUrl": null,
+    "contributionsTitle": "AI 작업의 범위를 정하고 결과를 검수하는 방식",
+    "contributionsNote": "1인 개발자로서 게임의 방향, 구현 우선순위, 결과의 채택 여부를 결정했습니다. AI는 조사와 대안 제시, 코드 수정, 에디터 도구 제작과 검사를 맡았고, 저는 실제 플레이를 확인한 뒤 후속 수정을 지시했습니다.",
+    "contributions": [
+      {
+        "title": "기획·기능·아트·검증의 작업 맥락 관리",
+        "text": "작업 주제별로 대화를 나누고, 확정된 기획과 공통 규칙을 먼저 확인하도록 구성했습니다. 작업 메모에는 현재 상태, 영향 범위, 다음에 확인할 항목을 기록해 다른 작업에서도 같은 결정을 이어갈 수 있게 했습니다."
+      },
+      {
+        "title": "변경 범위와 완료 기준을 담은 작업 지시",
+        "text": "원하는 플레이 결과와 현재 문제, 이미 확정한 규칙, 변경 범위, 검사 조건을 함께 제시했습니다. 예를 들어 야외 영업 개편은 메뉴 표시뿐 아니라 공유 재고의 차감, 조리와 진열, 판매 보상, 기존 저장에 미치는 영향까지 한 작업의 확인 항목으로 정했습니다."
+      },
+      {
+        "title": "변경 검토와 재검증 이력",
+        "text": "이슈에는 요청, AI의 제안, 개발자 결정, 실제 수정과 검사 결과를 연결했습니다. 피드백으로 재수정할 때는 첫 실패와 재현 조건을 같은 이슈에 남겼습니다. 커밋에는 개발자 판단과 직접 작업, AI가 수행한 변경, 검증 환경을 구분해 기록했습니다."
+      },
+      {
+        "title": "반복 작업을 도구와 자동화로 관리",
+        "text": "AI와 함께 저장 ID 부여, 프리팹 격자 배치, 레시피 참조 검사 도구를 만들었습니다. 저장 ID 도구는 기존 식별자를 유지하면서 누락과 복제 객체를 구분해 처리합니다. 공개 기록은 개발자가 승인한 파일과 변경 이력을 선별해 동기화하도록 구성했습니다."
+      }
+    ],
+    "architectureLabel": "햄포차의 하루",
     "flow": [
-      "탐험·채집",
-      "재료 준비",
-      "조리",
-      "주문·판매",
-      "성장·다음 탐험"
+      "숲 탐험·수집",
+      "재료 입고",
+      "조리·서빙",
+      "판매·성장",
+      "마감·수면"
     ],
     "systems": [
       {
-        "title": "탐험과 영업의 역할 분리",
-        "text": "이동·채집과 주문·조리의 입력 및 진행을 나누고, 공통 게임 상태와 연결하는 프로토타입을 구성하고 있습니다."
+        "title": "직접 조리하는 손맛을 만드는 영업 구조",
+        "text": "플레이 피드백에서 주문과 서빙은 직접 하는데 조리가 버튼으로 끝난다는 점을 확인했습니다. 실내 조리를 재료 운반과 투입으로 바꾸고, 야외에서는 진열품을 자동으로 판매하도록 역할을 나눴습니다. 실내 주문과 조리대는 각자 진행 상태를 가집니다. 야외 화로는 예약할 때 공유 냉장고에서 재료를 차감하고, 저장에서 예약을 복원하거나 다음 꼬치를 구울 때 중복으로 차감하지 않습니다. 마감하면 미완성 예약의 재료는 돌려주고 이미 진열한 음식은 다음 영업에 남깁니다."
       },
       {
-        "title": "Unity URP와 모바일 입력",
-        "text": "URP 카툰풍 렌더링과 Input System 기반 입력을 사용합니다. 실제 Android 터치 조작과 성능은 별도 검증이 필요합니다."
+        "title": "공간이 바뀌어도 이어지는 게임 상태",
+        "text": "공통 시스템이 있는 Main 씬을 유지하고 집·마을·숲을 필요할 때 불러옵니다. 실내외 영업 중에는 마을과 포차 씬을 함께 두고 카메라와 조작 대상을 전환해 다른 공간의 조리와 손님 행동을 계속 진행합니다. 월드 시계는 영업 마감, 주민 귀가, 수면과 다음 날의 시작을 연결합니다."
       },
       {
-        "title": "시간·피로와 영업 진행",
-        "text": "게임의 시간, 활동에 따른 피로, 주문과 손님의 진행 속도를 관리하는 구성을 개발 중입니다."
+        "title": "레시피·성장 데이터와 화면의 연결",
+        "text": "재료와 아이콘은 레시피 데이터에, 메뉴 해금과 강화는 콘텐츠 카탈로그에 담았습니다. 조리와 메뉴 선택, 강화 화면은 같은 데이터를 참조합니다. 이미 확정된 주문 보상과 이전에 조리한 꼬치의 판매가는 가격을 바꾼 뒤에도 유지하도록 구성했습니다."
       },
       {
-        "title": "로컬 저장과 Firebase 연동 방향",
-        "text": "로컬 JSON 저장을 우선 구성하고, Google/Firebase 계정 기반 저장을 도입하는 방향입니다. 클라우드 연동과 세션·보안 검증은 후속 개발 목표이며, 현재 적용 완료로 표시하지 않습니다."
+        "title": "모바일 조작과 탐험 정보",
+        "text": "Input System으로 이동과 상호작용을 처리합니다. 숲을 다시 방문하면 채집 대상과 몬스터를 재배치합니다. 숲에서 저장한 진행을 이어갈 때는 현재 방문의 수집 상태를 복원하고, 미니맵도 같은 상태를 읽어 이미 획득한 표식을 숨깁니다. 가구 배치에는 격자 점유와 입구·침대까지의 접근 경로 검사를 연결했습니다."
+      },
+      {
+        "title": "계정별 저장과 씬 객체의 복원",
+        "text": "로컬 JSON과 Firebase Authentication·Cloud Firestore를 연결해 계정별 진행을 저장합니다. 저장 ID로 씬에 배치된 대상을 찾아 주문 상태와 가구 배치 등을 이어갈 수 있게 구성했습니다."
       }
     ],
     "problem": {
-      "title": "탐험과 포장마차 영업을 하나의 하루로",
-      "context": "탐험에서는 이동·채집·전투를, 영업에서는 주문·조리·전달을 조작하므로 두 활동을 자연스럽게 연결하는 흐름이 필요합니다.",
-      "approach": "게임 상태와 시간을 공통으로 관리하고, 탐험 입력과 영업 UI를 나누어 구성합니다. 개발자는 플레이 규칙과 우선순위를 결정하고 AI와 구현을 진행합니다.",
-      "result": "개발자가 Unity Editor에서 탐험·영업·수면을 이어가는 핵심 루프를 직접 플레이해 PoC를 확인했습니다. 로컬 저장·복원, 전체 성장 루프, Android 실기기와 Firebase 연동·보안 검증은 남아 있습니다."
+      "title": "비활성 테이블도 이어지는 저장 복원",
+      "context": "계속하기로 불러온 저장을 적용할 때 비활성 테이블에 필요한 참조가 준비되지 않아 복원 중 예외가 발생했습니다.",
+      "approach": "AI가 복원 직전에 필요한 참조를 준비하도록 초기화 경로를 분리했습니다. 나중에 테이블이 활성화돼도 이미 복원된 주문 상태를 다시 초기화하지 않도록 보완했습니다.",
+      "result": "Unity 편집 모드에서 격리 검사 8개와 실제 씬의 테이블 16개에 대한 메모리 저장·복원 검사를 통과했습니다. 이전 Android 빌드에서는 개발자가 기본 계속하기를 실기기에서 확인했습니다. 후속 편집 모드 검사에서는 마감 결산이 한 번만 열리는지, 야외 예약을 복원할 때 재료가 다시 차감되지 않는지, 같은 숲 방문의 획득 보상이 중복되지 않는지 확인했습니다. 보관된 Android 테스트 APK는 0.7.0입니다. 이 APK의 최신 작업본 일치 여부와 실기기 통합 검증 결과는 아직 확인하지 못했습니다."
     },
-        "cardTags": [
+    "cardTags": [
       "Android",
       "AI",
       "Firebase"
@@ -461,11 +497,11 @@ export const experience = [
     "slug": "house-haulers"
   },
   {
-    "time": "프로토타입 개발 중",
+    "time": "2026.11",
     "type": "개인 프로젝트 · AI 협업",
     "title": "햄포차",
-    "summary": "탐험·채집과 요리·포장마차 영업을 연결하는 Android 게임.",
-    "text": "게임 방향과 규칙을 직접 결정하고 AI와 초기 프로토타입을 개발하고 있습니다. Android 실기기와 전체 성장 흐름의 검증은 진행할 단계입니다.",
+    "summary": "숲 탐험과 직접 조리·서빙을 연결하고, AI 협업을 작업 지시·검수·변경 기록으로 관리한 Android 경영 게임.",
+    "text": "게임과 포차 운영 규칙을 설계하고 AI와 함께 구현했습니다. Android 실기기에서 플레이와 저장 복원을 확인하고 Unity Profiler로 지역 전환 구간을 측정했습니다.",
     "slug": "ham-pocha"
   },
   {
