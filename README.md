@@ -47,7 +47,7 @@ Unity와 C#을 기반으로 게임 개발 역량을 쌓아가고 있는 신입 �
 - UI·사운드·로컬라이제이션 및 유저 데이터 관리
 - ScriptableObject 기반 데이터 설계 및 오브젝트 풀링
 
-**[프로젝트 GitHub 저장소 보기](https://github.com/mjoon31/slime-raising)**
+**[프로젝트 GitHub 저장소 보기](https://github.com/mjoon31/slime-raising)** · **[프로젝트 상세 소개](https://mjoon31.github.io/mjoon31/projects/slime-raising/)** · **[프로젝트 자료](https://mjoon31.github.io/mjoon31/projects/slime-raising/#resources)** · **[개발 위키](https://github.com/mjoon31/slime-raising/wiki)**
 
 ---
 
@@ -100,7 +100,7 @@ Unity와 C#을 기반으로 게임 개발 역량을 쌓아가고 있는 신입 �
 
 게임 규칙과 작업 범위, 검수 기준을 직접 정하고, AI에 구현·도구 제작·검사를 맡겼습니다. 요청부터 피드백, 수정, 재검증까지 이슈와 커밋에 기록했습니다. 이전 Android 빌드에서는 실기기로 플레이와 기본 저장 복원을 확인했고, 이후 변경된 영업·저장 흐름은 Unity 편집 모드에서 항목별로 검사했습니다.
 
-**[프로젝트 상세 소개](https://mjoon31.github.io/mjoon31/projects/ham-pocha/)** · **[프로젝트 자료](https://mjoon31.github.io/mjoon31/projects/ham-pocha/#resources)** · **[공개 저장소](https://github.com/mjoon31/ham-pocha)** · **[개발 위키](https://github.com/mjoon31/ham-pocha/wiki)**
+**[프로젝트 GitHub 저장소 보기](https://github.com/mjoon31/ham-pocha)** · **[프로젝트 상세 소개](https://mjoon31.github.io/mjoon31/projects/ham-pocha/)** · **[프로젝트 자료](https://mjoon31.github.io/mjoon31/projects/ham-pocha/#resources)** · **[개발 위키](https://github.com/mjoon31/ham-pocha/wiki)**
 
 ---
 
