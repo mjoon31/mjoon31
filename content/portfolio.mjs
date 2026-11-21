@@ -34,6 +34,7 @@ export const projects = [
     "language": "C#",
     "developmentPeriod": "2026.03.18 — 2026.09.30",
     "teamSize": "1명 · 개인 프로젝트",
+    "cardTeamSize": "개인 프로젝트",
     "role": "기획 · 게임플레이 시스템 · 클라이언트 개발",
     "status": "개발 이력",
     "statusKind": "history",
