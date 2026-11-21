@@ -114,14 +114,14 @@ function detail(p, index) {
       label: hasGameplayContent ? '핵심 플레이' : '게임 개요',
       eyebrow: 'GAME OVERVIEW',
       title: hasGameplayContent ? '숲에서 포차까지, 햄스터의 하루' : '어떤 게임인가요?',
-      body: `<p class="lead">${hasGameplayContent ? detailCopy(p.overview) : lines(p.overview)}</p>${hasGameplayContent ? flow + articles(p.gameplayContent) : `<ul class="feature-list">${p.features.map(t=>`<li>${e(t)}</li>`).join('')}</ul>`}${badges(p.tags)}`,
+      body: `<p class="lead">${hasGameplayContent ? detailCopy(p.overview) : lines(p.overview)}</p>${hasGameplayContent ? flow : `<ul class="feature-list">${p.features.map(t=>`<li>${e(t)}</li>`).join('')}</ul>`}${badges(p.tags)}`,
     },
     {
       id: 'gameplay',
       label: '플레이 화면',
       eyebrow: 'GAMEPLAY',
-      title: '플레이 들여다보기',
-      body: `${media(p,prefix)}${p.fullVideo?`<div class="full-gameplay"><h3>전체 플레이 영상</h3>${fullPlayer(p,prefix)}<p class="film-help">화면 오른쪽을 누르고 있는 동안 2배속으로 재생됩니다.</p></div>`:''}`,
+      title: p.gameplayTitle ?? '플레이 들여다보기',
+      body: `${hasGameplayContent ? articles(p.gameplayContent) : ''}${media(p,prefix)}${p.fullVideo?`<div class="full-gameplay"><h3>전체 플레이 영상</h3>${fullPlayer(p,prefix)}<p class="film-help">화면 오른쪽을 누르고 있는 동안 2배속으로 재생됩니다.</p></div>`:''}`,
     },
     ...(hasGameplayContent ? [systems, contributions] : [contributions, systems]),
     {
