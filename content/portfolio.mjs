@@ -305,10 +305,11 @@ export const projects = [
   {
     "id": "03",
     "resources": [
-      {"src": "assets/resources/ham-pocha/introduction.pptx", "label": "소개문서 PPTX", "previewSrc": "assets/resources/ham-pocha/introduction.pdf", "filename": "햄포차_소개문서.pptx"},
-      {"src": "assets/resources/ham-pocha/game-design.pptx", "label": "기획서 PPTX", "previewSrc": "assets/resources/ham-pocha/game-design.pdf", "filename": "햄포차_기획서.pptx"},
-      {"src": "assets/resources/ham-pocha/technical-development.pptx", "label": "기술개발문서 PPTX", "previewSrc": "assets/resources/ham-pocha/technical-development.pdf", "filename": "햄포차_기술개발문서.pptx"},
-      {"src": "assets/resources/ham-pocha/data-tables.pptx", "label": "데이터테이블 PPTX", "previewSrc": "assets/resources/ham-pocha/data-tables.pdf", "filename": "햄포차_데이터테이블.pptx"}
+      {"src":"assets/resources/ham-pocha/introduction.pdf","label":"소개문서 PDF","filename":"햄포차_소개문서.pdf"},
+      {"src":"assets/resources/ham-pocha/introduction.pptx","label":"소개문서 PPTX","previewSrc":"assets/resources/ham-pocha/introduction.pdf","filename":"햄포차_소개문서.pptx"},
+      {"src":"assets/resources/ham-pocha/game-design.pdf","label":"기획서 PDF","filename":"햄포차_기획서.pdf"},
+      {"src":"assets/resources/ham-pocha/technical-development.pdf","label":"기술개발문서 PDF","filename":"햄포차_기술개발문서.pdf"},
+      {"src":"assets/resources/ham-pocha/data-tables.pdf","label":"데이터테이블 PDF","filename":"햄포차_데이터테이블.pdf"}
     ],
     "slug": "ham-pocha",
     "title": "햄포차",
