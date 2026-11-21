@@ -324,10 +324,11 @@ export const projects = [
       "Firebase",
       "URP"
     ],
-    "developmentPeriod": "2026.11.05 — 2026.11.21 (계획)",
+    "developmentPeriod": "2026.11.05 — 2026.11.22 (계획)",
     "teamSize": "개인 프로젝트 · AI 협업",
     "role": "게임 설계 · AI 작업 범위·검수 기준 관리 · 실기기 검수",
     "status": "Android 테스트 빌드",
+    "showDetailStatus": false,
     "statusKind": "progress",
     "thumbnail": "assets/media/ham-pocha/app-icon.png",
     "thumbnailAlt": "햄포차 앱 아이콘",
@@ -335,7 +336,7 @@ export const projects = [
     "placeholder": false,
     "screenshots": [],
     "cardDescription": "숲에서 재료를 모으고, 직접 요리하고 서빙하며 나만의 포차를 키우는 3D 경영 게임.",
-    "description": "숲에서 모은 식재료로 손님의 한 끼를 만듭니다. 채집과 직접 조리, 서빙과 가게 성장이 햄스터의 하루로 이어지는 3D 경영 게임입니다.",
+    "description": "숲에서 탐험과 영업으로 가게 성장이 햄스터의 일상인 3D 경영 게임입니다.",
     "overview": "숲과 마을을 오가며 포차 영업에 필요한 재료를 수집하고, 손님의 주문에 맞춰 음식을 조리합니다.\n자정이 되면 영업을 마감하고, 집에서 피로를 회복하며 다음 날을 준비합니다.\n영업으로 얻은 골드와 경험치를 바탕으로 레시피를 강화하고, 새로운 탐험 지역과 추가 레시피를 해금합니다.",
     "features": [],
     "gameplayContent": [
