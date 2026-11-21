@@ -319,7 +319,8 @@ export const projects = [
     "engine": "Unity 2022.3.62f3",
     "language": "C#",
     "additionalTechnologies": [
-      "Firebase"
+      "Firebase",
+      "URP"
     ],
     "developmentPeriod": "2026.11.05 — 2026.11.21 (계획)",
     "teamSize": "개인 프로젝트 · AI 협업",
@@ -455,6 +456,7 @@ export const projects = [
     "cardTags": [
       "Android",
       "AI",
+      "URP",
       "Firebase"
     ]
   }

@@ -32,7 +32,7 @@ Unity와 C#을 기반으로 게임 개발 역량을 쌓아가고 있는 신입 �
 
 **2D 모바일 액션 로그라이크 RPG**
 
-`Unity` `C#` `Android` `Single Player`
+`Unity` `C#` `Android`
 
 **개인 프로젝트** · 2026.03 ~ 2026.09
 
