@@ -204,23 +204,29 @@ button,input,select,textarea{font-family:var(--font)}
 
 .illustrated-card-art{background:#4e3c33;container-type:size}
 .illustrated-card-art img.card-scene{filter:blur(5px);opacity:.62}
-.illustrated-card-art img.card-app-icon{z-index:1}
-.illustrated-card-art img.card-screen{
+.illustrated-card-art img.card-app-icon{
+  z-index:1;
+  left:clamp(14px, 4cqw, 24px);
+  width:clamp(72px, 26cqw, 104px);
+  height:auto;
+  aspect-ratio:1;
+}
+.illustrated-card-art img.card-screen,
+.project-card:hover .illustrated-card-art img.card-screen{
   top:50%;
-  right:7%;
+  right:5%;
   width:61%;
-  width:min(61%, 162cqh);
+  width:min(61%, 150cqh);
   height:auto;
   aspect-ratio:1671 / 941;
   object-fit:contain;
   border-radius:14px;
-  transform:translateY(-50%) rotate(2deg);
-}
-.project-card:hover .illustrated-card-art img.card-screen{
-  transform:translateY(-50%) rotate(2deg);
+  transform:translateY(-50%) rotate(5deg);
 }
 @media(max-width:600px){
   .home-page .project-cover:has(.illustrated-card-art){height:116px}
   .illustrated-card-art{min-height:100%}
   .illustrated-card-art img.card-app-icon{left:20px;width:76px;height:76px;border-radius:17px}
 }
+
+#overview > .lead + .flow-diagram{margin-block-start:1.5rem}
