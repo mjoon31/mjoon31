@@ -83,7 +83,7 @@ Unity와 C#을 기반으로 게임 개발 역량을 쌓아가고 있는 신입 �
 
 **3D 탐험·요리·포장마차 경영 게임**
 
-`Unity` `C#` `URP` `Input System` `Firebase` `Android`
+`Unity` `C#` `Android` `AI` `URP` `Firebase`
 
 **개인 프로젝트 · AI 협업 | Android 테스트 빌드**
 
