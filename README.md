@@ -104,7 +104,8 @@ Unity와 C#을 기반으로 게임 개발 역량을 쌓아가고 있는 신입 �
 
 **AI 협업과 검수**
 
-게임의 방향과 작업 범위, 완료 기준을 직접 정하고, AI에 구현·에디터 도구 제작·검사를 맡겼습니다. 실제 플레이로 결과를 검수한 뒤 후속 수정을 지시하고, 변경과 재검증 과정을 이슈와 커밋에 기록했습니다.
+- **작업 전** — 역할별 Codex 대화에서 `AGENTS.md`와 관련 기획을 확인하고, 제가 정한 수정 범위와 완료 기준을 공용 메모·Git 변경 내역과 대조해 중복 작업을 줄였습니다.
+- **검수 후** — AI가 수정한 내용과 제가 직접 플레이해 확인한 결과를 구분하고, 미검증 항목과 후속 수정은 같은 이슈에 이어 기록했습니다.
 
 **[프로젝트 GitHub 저장소 보기](https://github.com/mjoon31/ham-pocha)** · **[프로젝트 상세 소개](https://mjoon31.github.io/mjoon31/projects/ham-pocha/)** · **[프로젝트 자료](https://mjoon31.github.io/mjoon31/projects/ham-pocha/#resources)** · **[개발 위키](https://github.com/mjoon31/ham-pocha/wiki)**
 
