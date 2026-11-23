@@ -113,7 +113,9 @@ Unity와 C#을 기반으로 게임 개발 역량을 쌓아가고 있는 신입 �
 
 **AI 협업과 검수**
 
-Codex와 Unity를 MCP로 연결하고, `AGENTS.md`에 참고 문서와 코드 규칙, 수정 범위를 정리했습니다. 기능을 따로 검수할 수 있는 단위로 나눠 역할별 대화에 기대 동작과 완료 기준을 전달하고, 결정 사항과 변경 파일, 검사 결과는 공용 메모에 남겨 중복 작업을 줄였습니다. AI는 구현과 컴파일 검사를 맡았고, 저는 Android에서 직접 플레이해 결과를 검수한 뒤 변경 내역과 이슈를 대조해 승인된 파일만 GitHub Actions로 공개했습니다.
+Codex와 Unity를 MCP로 연결하고, `AGENTS.md`에 참고 문서와 코드 규칙, 수정 범위를 정리했습니다.  
+기능을 따로 검수할 수 있는 단위로 나눠 역할별 대화에 기대 동작과 완료 기준을 전달하고, 결정 사항과 변경 파일, 검사 결과는 공용 메모에 남겨 중복 작업을 줄였습니다.  
+AI는 구현과 컴파일 검사를 맡았고, 개발자 본인은 Android에서 직접 플레이해 결과를 검수한 뒤 변경 내역과 이슈를 대조해 승인된 파일만 GitHub Actions로 공개했습니다.
 
 **[프로젝트 GitHub 저장소 보기](https://github.com/mjoon31/ham-pocha)** · **[프로젝트 상세 소개](https://mjoon31.github.io/mjoon31/projects/ham-pocha/)** · **[프로젝트 자료](https://mjoon31.github.io/mjoon31/projects/ham-pocha/#resources)** · **[개발 위키](https://github.com/mjoon31/ham-pocha/wiki)**
 
