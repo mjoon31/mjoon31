@@ -7,7 +7,7 @@ import { site, projects, skills, experience } from '../content/portfolio.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const out = resolve(root, 'docs');
 const assetVersion = {};
-for (const name of ['site.css', 'site.js', 'player.js']) assetVersion[name] = createHash('sha256').update(await readFile(resolve(out, 'assets', name))).digest('hex').slice(0,12);
+for (const name of ['site.css', 'site.js', 'player.js', 'ham-pocha.css', 'ham-pocha.js']) assetVersion[name] = createHash('sha256').update(await readFile(resolve(out, 'assets', name))).digest('hex').slice(0,12);
 const e = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const lines = value => e(value).replace(/(?<=[.!?])\s+/g, '<br>');
 const arrow = '<span aria-hidden="true">→</span>';
@@ -36,10 +36,10 @@ function header(prefix, detail) {
   return `<a class="skip-link" href="#main">본문으로 바로 가기</a><header class="site-header"><button class="menu-toggle" aria-label="메뉴 열기" aria-controls="primary-nav" aria-expanded="false" hidden><span></span><span></span><span></span></button><nav id="primary-nav" aria-label="주 메뉴">${navItems.map(([id,title])=>`<a href="${prefix}#${id}"${!detail && id==='about'?' aria-current="location"':''}>${title}</a>`).join('')}</nav></header>`;
 }
 
-function shell({title, description, route='', body, prefix='./', detail=false, image='assets/images/og-profile-dark.png', notFound=false}) {
+function shell({title, description, route='', body, prefix='./', detail=false, image='assets/images/og-profile-dark.png', notFound=false, hamPochaAssets=false}) {
   const url = new URL(route, site.url).href;
   return `<!doctype html>
-<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark light"><title>${e(title)}</title><meta name="description" content="${e(description)}"><meta name="theme-color" content="#222831">${notFound?'<meta name="robots" content="noindex">':`<link rel="canonical" href="${url}">`}<meta property="og:type" content="website"><meta property="og:locale" content="ko_KR"><meta property="og:title" content="${e(title)}"><meta property="og:description" content="${e(description)}"><meta property="og:url" content="${url}"><meta property="og:image" content="${new URL(image, site.url).href}"><meta name="twitter:card" content="summary_large_image"><link rel="icon" type="image/svg+xml" href="${prefix}assets/images/favicon.svg"><link rel="stylesheet" href="${prefix}assets/site.css?v=${assetVersion['site.css']}"><script src="${prefix}assets/site.js?v=${assetVersion['site.js']}" defer></script><script src="${prefix}assets/player.js?v=${assetVersion['player.js']}" defer></script></head><body id="top" class="${detail ? 'detail-page' : 'home-page'}">${header(prefix,detail)}${body}</body></html>\n`;
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark light"><title>${e(title)}</title><meta name="description" content="${e(description)}"><meta name="theme-color" content="#222831">${notFound?'<meta name="robots" content="noindex">':`<link rel="canonical" href="${url}">`}<meta property="og:type" content="website"><meta property="og:locale" content="ko_KR"><meta property="og:title" content="${e(title)}"><meta property="og:description" content="${e(description)}"><meta property="og:url" content="${url}"><meta property="og:image" content="${new URL(image, site.url).href}"><meta name="twitter:card" content="summary_large_image"><link rel="icon" type="image/svg+xml" href="${prefix}assets/images/favicon.svg"><link rel="stylesheet" href="${prefix}assets/site.css?v=${assetVersion['site.css']}"><script src="${prefix}assets/site.js?v=${assetVersion['site.js']}" defer></script><script src="${prefix}assets/player.js?v=${assetVersion['player.js']}" defer></script>${hamPochaAssets ? `<link rel="stylesheet" href="${prefix}assets/ham-pocha.css?v=${assetVersion['ham-pocha.css']}"><script src="${prefix}assets/ham-pocha.js?v=${assetVersion['ham-pocha.js']}" defer></script>` : ''}</head><body id="top" class="${detail ? 'detail-page' : 'home-page'}">${header(prefix,detail)}${body}</body></html>\n`;
 }
 
 function artwork(p,prefix){
@@ -73,8 +73,67 @@ function projectResources(p,prefix){
  return downloads + `</div>`;
 }
 
-function fullPlayer(p,prefix){
- return p.fullVideo?`<div class="film-player" data-film-player><video controls playsinline preload="metadata" poster="${prefix}${e(p.fullVideo.poster)}" aria-label="${e(p.title)} 전체 플레이 영상"><source src="${prefix}${e(p.fullVideo.src)}" type="video/mp4">동영상 재생을 지원하지 않는 브라우저입니다.</video><button class="film-center" aria-label="영상 재생" hidden>▶</button><span class="film-speed" role="status" hidden>2×</span><button class="film-controls-trigger" aria-label="재생 조작 바 표시" hidden></button><div class="film-controls" hidden><input class="film-seek" type="range" min="0" max="100" value="0" step="0.1" aria-label="영상 재생 위치"><div class="film-toolbar"><button data-play aria-label="재생">▶</button><span class="film-time" aria-live="off">0:00 / 0:00</span><button data-mute aria-label="음소거">음소거</button><button data-fullscreen aria-label="전체화면">전체화면</button></div></div><p class="film-error" role="status" hidden>영상을 불러오지 못했습니다. 하단 프로젝트 자료의 다운로드 링크로 확인해주세요.</p></div>`:'';
+function fullPlayer(video, prefix, label, errorMessage = '영상을 불러오지 못했습니다. 하단 프로젝트 자료의 다운로드 링크로 확인해주세요.'){
+ return video?`<div class="film-player" data-film-player><video controls playsinline preload="metadata" poster="${prefix}${e(video.poster)}" aria-label="${e(label)}"><source src="${prefix}${e(video.src)}" type="video/mp4">동영상 재생을 지원하지 않는 브라우저입니다.</video><button class="film-center" aria-label="영상 재생" hidden>▶</button><span class="film-speed" role="status" hidden>2×</span><button class="film-controls-trigger" aria-label="재생 조작 바 표시" hidden></button><div class="film-controls" hidden><input class="film-seek" type="range" min="0" max="100" value="0" step="0.1" aria-label="영상 재생 위치"><div class="film-toolbar"><button data-play aria-label="재생">▶</button><span class="film-time" aria-live="off">0:00 / 0:00</span><button data-mute aria-label="음소거">음소거</button><button data-fullscreen aria-label="전체화면">전체화면</button></div></div><p class="film-error" role="status" hidden>${e(errorMessage)}</p></div>`:'';
+}
+
+function landscapeGameplay(p, prefix) {
+  const store = p.storePreview;
+  const shotCards = p.screenshots.map(shot => `
+    <figure class="gameplay-carousel-card">
+      <a href="${prefix}${e(shot.src)}" target="_blank" rel="noopener noreferrer" aria-label="${e(shot.caption)} 원본 보기">
+        <img src="${prefix}${e(shot.src)}" alt="${e(shot.alt)}" width="${shot.width}" height="${shot.height}" loading="lazy" decoding="async">
+      </a>
+      <figcaption>${e(shot.caption)}</figcaption>
+    </figure>`).join('');
+  const gallery = `<div class="gameplay-carousel">
+    <div class="gameplay-carousel-track" role="region" aria-label="소개 영상과 스크린샷" tabindex="0">
+      <figure class="gameplay-carousel-card">
+        <button type="button" data-gallery-open aria-label="${e(store.title)} 재생" aria-haspopup="dialog">
+          <img src="${prefix}${e(store.poster)}" alt="" width="1280" height="720" loading="lazy" decoding="async">
+          <span class="gameplay-carousel-play" aria-hidden="true">▶</span>
+        </button>
+        <figcaption>${e(store.title)}</figcaption>
+      </figure>
+      ${shotCards.trimStart()}
+    </div>
+    <div class="gameplay-carousel-controls">
+      <button type="button" data-gallery-previous aria-label="이전 화면" disabled>←</button>
+      <button type="button" data-gallery-next aria-label="다음 화면">→</button>
+    </div>
+    <dialog class="gameplay-carousel-dialog" aria-labelledby="store-preview-title">
+      <header><h3 id="store-preview-title">${e(store.title)}</h3>
+        <button type="button" data-gallery-close aria-label="영상 닫기">✕</button>
+      </header>
+      <video controls playsinline preload="none" poster="${prefix}${e(store.poster)}">
+        <source src="${prefix}${e(store.src)}" type="video/mp4">
+        동영상 재생을 지원하지 않는 브라우저입니다.
+      </video>
+    </dialog>
+  </div>`;
+  const players = p.landscapeVideos.map(video => `<div class="full-gameplay full-gameplay-landscape">
+    <h3>${e(video.title)}</h3>
+    ${fullPlayer(video, prefix, video.title, '영상을 불러오지 못했습니다. 잠시 뒤 다시 재생해 주세요.')}
+  </div>`).join('');
+  return gallery + '<p class="muted">아래 영상은 재생 중 화면 오른쪽을 누르고 있는 동안 2배속으로 재생됩니다.</p>' + players;
+}
+
+function caseExamples(groups, detailCopy) {
+  const paragraphs = texts => texts.map(text => `<p>${detailCopy(text)}</p>`).join('');
+  return groups.map(group => {
+    const cases = group.cases.map(item => {
+      const table = item.table;
+      const comparison = table ? `<div class="ai-case-table-wrap" role="region" aria-label="${e(table.caption)}" tabindex="0">
+        <table class="ai-case-table">
+          <caption>${e(table.caption)}</caption>
+          <thead><tr>${table.headings.map(heading => `<th scope="col">${e(heading)}</th>`).join('')}</tr></thead>
+          <tbody>${table.rows.map(([label, ...values]) => `<tr><th scope="row">${e(label)}</th>${values.map(value => `<td>${e(value)}</td>`).join('')}</tr>`).join('')}</tbody>
+        </table>
+      </div>` : '';
+      return `<article><h4>${e(item.title)}</h4>${paragraphs(item.paragraphs)}${comparison}${paragraphs(item.after ?? [])}</article>`;
+    }).join('');
+    return `<div class="ai-case-group"><h3>${e(group.title)}</h3>${cases}</div>`;
+  }).join('');
 }
 
 function detail(p, index) {
@@ -86,10 +145,10 @@ function detail(p, index) {
   const articles = items => `<div class="system-list">${items.map(({title,text})=>`<article><h3>${e(title)}</h3><p>${detailCopy(text)}</p></article>`).join('')}</div>`;
   const contributions = {
     id: 'contributions',
-    label: hasGameplayContent ? 'AI 협업과 작업 관리' : '담당 작업',
+    label: p.caseGroups ? p.contributionsTitle : hasGameplayContent ? 'AI 협업과 작업 관리' : '담당 작업',
     eyebrow: hasGameplayContent ? 'AI DEVELOPMENT WORKFLOW' : 'MY CONTRIBUTIONS',
     title: p.contributionsTitle,
-    body: `<p>${detailCopy(p.contributionsNote)}</p><div class="contribution-list">${p.contributions.map((c,i)=>`<article><span class="contribution-index mono">0${i+1}</span><div>${c.stage&&c.stage!=='구현 이력'?`<span class="quiet-label">${e(c.stage)}</span>`:''}<h3>${e(c.title)}</h3><p>${detailCopy(c.text)}</p></div></article>`).join('')}</div>`,
+    body: p.caseGroups ? `<p>${detailCopy(p.contributionsNote)}</p>${caseExamples(p.caseGroups, detailCopy)}` : `<p>${detailCopy(p.contributionsNote)}</p><div class="contribution-list">${p.contributions.map((c,i)=>`<article><span class="contribution-index mono">0${i+1}</span><div>${c.stage&&c.stage!=='구현 이력'?`<span class="quiet-label">${e(c.stage)}</span>`:''}<h3>${e(c.title)}</h3><p>${detailCopy(c.text)}</p></div></article>`).join('')}</div>`,
   };
   const systems = {
     id: 'systems',
@@ -111,7 +170,7 @@ function detail(p, index) {
       label: '플레이 화면',
       eyebrow: 'GAMEPLAY',
       title: '플레이 들여다보기',
-      body: `${media(p,prefix)}${p.fullVideo?`<div class="full-gameplay"><h3>전체 플레이 영상</h3>${fullPlayer(p,prefix)}<p class="film-help">화면 오른쪽을 누르고 있는 동안 2배속으로 재생됩니다.</p></div>`:''}`,
+      body: p.storePreview ? landscapeGameplay(p, prefix) : `${media(p,prefix)}${p.fullVideo?`<div class="full-gameplay"><h3>전체 플레이 영상</h3>${fullPlayer(p.fullVideo, prefix, `${p.title} 전체 플레이 영상`)}<p class="film-help">화면 오른쪽을 누르고 있는 동안 2배속으로 재생됩니다.</p></div>`:''}`,
     },
     ...(hasGameplayContent ? [{
       id: 'gameplay-content',
@@ -137,7 +196,7 @@ function detail(p, index) {
   ];
   const sectionNumber = index => String(index + 1).padStart(2, '0');
   const iconCover = p.cardArtwork || p.cardIllustration;
-  return shell({title:`${p.title} · 김명준의 게임 개발 포트폴리오`,description:p.description,route:`projects/${p.slug}/`,prefix,detail:true,image:p.thumbnail,body:`<main id="main" class="detail-main"><div class="container"><nav class="breadcrumb" aria-label="현재 위치"><a href="../../#projects">프로젝트</a><span aria-hidden="true">/</span><span aria-current="page">${e(p.title)}</span></nav><section class="project-hero" aria-labelledby="detail-title"><div class="detail-title-row hero-entry"><div><p class="eyebrow">PROJECT ${p.id} <span>/ ${e(p.subtitle)}</span></p><h1 id="detail-title">${e(p.title)}</h1><p class="detail-subtitle">${lines(p.description)}</p></div>${p.showDetailStatus===false||p.statusKind==='history'?'':`<span class="status ${p.statusKind}"><i aria-hidden="true"></i>${e(p.status)}</span>`}</div><figure class="detail-cover hero-entry${iconCover?' detail-app-icon':''}${p.placeholder?' detail-placeholder':''}">${iconCover?`<img src="${prefix}${p.thumbnail}" alt="${e(p.thumbnailAlt)}" width="1254" height="1254">`:artwork(p,prefix)}<figcaption>${p.placeholder?'임시 커버 · 실제 게임 스크린샷이 아닙니다.':iconCover?'앱 아이콘':'게임 대표 화면'}</figcaption></figure><dl class="project-facts">${[['장르',p.genre],['플랫폼',p.platform],['개발 기간',p.developmentPeriod],['개발 인원',p.teamSize],['담당 역할',p.role],['기술',[p.engine,p.language,...(p.additionalTechnologies||[])].join(' / ')]].map(([k,v])=>`<div><dt>${e(k)}</dt><dd>${e(v)}</dd></div>`).join('')}</dl></section></div>
+  return shell({title:`${p.title} · 김명준의 게임 개발 포트폴리오`,description:p.description,route:`projects/${p.slug}/`,prefix,detail:true,image:p.thumbnail,hamPochaAssets:Boolean(p.storePreview),body:`<main id="main" class="detail-main"><div class="container"><nav class="breadcrumb" aria-label="현재 위치"><a href="../../#projects">프로젝트</a><span aria-hidden="true">/</span><span aria-current="page">${e(p.title)}</span></nav><section class="project-hero" aria-labelledby="detail-title"><div class="detail-title-row hero-entry"><div><p class="eyebrow">PROJECT ${p.id} <span>/ ${e(p.subtitle)}</span></p><h1 id="detail-title">${e(p.title)}</h1><p class="detail-subtitle">${lines(p.description)}</p></div>${p.showDetailStatus===false||p.statusKind==='history'?'':`<span class="status ${p.statusKind}"><i aria-hidden="true"></i>${e(p.status)}</span>`}</div><figure class="detail-cover hero-entry${iconCover?' detail-app-icon':''}${p.placeholder?' detail-placeholder':''}">${iconCover?`<img src="${prefix}${p.thumbnail}" alt="${e(p.thumbnailAlt)}" width="1254" height="1254">`:artwork(p,prefix)}<figcaption>${p.placeholder?'임시 커버 · 실제 게임 스크린샷이 아닙니다.':iconCover?'앱 아이콘':'게임 대표 화면'}</figcaption></figure><dl class="project-facts">${[['장르',p.genre],['플랫폼',p.platform],['개발 기간',p.developmentPeriod],['개발 인원',p.teamSize],['담당 역할',p.role],['기술',[p.engine,p.language,...(p.additionalTechnologies||[])].join(' / ')]].map(([k,v])=>`<div><dt>${e(k)}</dt><dd>${e(v)}</dd></div>`).join('')}</dl></section></div>
 <div class="detail-body container"><aside class="detail-toc"><p class="mono">IN THIS PROJECT</p><nav aria-label="프로젝트 목차">${sections.map(({id,label},i)=>`<a href="#${id}"><span>${sectionNumber(i)}</span>${e(label)}</a>`).join('')}</nav><a class="small-link" href="../../#projects">← 프로젝트 목록</a></aside><div class="detail-content">
 ${sections.map(({id,eyebrow,title,body},i) =>
   `<section id="${id}" class="detail-section reveal"><p class="eyebrow">${sectionNumber(i)} / ${eyebrow}</p><h2>${e(title)}</h2>${body}</section>`
