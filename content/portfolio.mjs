@@ -8,6 +8,7 @@ export const site = {
   "portraitAlt": "김명준 프로필 사진",
   "email": "xxmj96@gmail.com",
   "github": "https://github.com/mjoon31",
+  "youtube": "https://www.youtube.com/@hipebbles",
   "url": "https://mjoon31.github.io/mjoon31/",
   "verifiedOn": "2026-11-06",
   "introduction": "Unity와 C#을 기반으로 게임 개발 역량을 쌓아가고 있는 신입 개발자입니다.",
@@ -466,7 +467,7 @@ export const projects = [
     },
     "gameplayLinks": [
       { "label": "itch.io에서 게임 소개 보기", "url": "https://hipebbles.itch.io/ham-pocha" },
-      { "label": "YouTube에서 플레이 영상 보기", "url": "https://www.youtube.com/@hipebbles" }
+      { "label": "YouTube에서 플레이 영상 보기", "url": site.youtube }
     ],
     "featureVideo": {
       "title": "기능 소개 영상",
