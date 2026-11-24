@@ -146,5 +146,5 @@ AI는 구현과 컴파일 검사를 맡았고, 개발자 본인은 Android에서
 - **Website:** [mjoon31.github.io/mjoon31](https://mjoon31.github.io/mjoon31)
 - **GitHub:** [github.com/mjoon31](https://github.com/mjoon31)
 - **YouTube:** [youtube.com/@hipebbles](https://www.youtube.com/@hipebbles)
-- **Itch.io:** [itch.io/ham-pocha](https://hipebbles.itch.io/ham-pocha)
+- **Itch.io:** [itch.io](https://hipebbles.itch.io)
 - **Email:** [xxmj96@gmail.com](mailto:xxmj96@gmail.com)
