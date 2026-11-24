@@ -462,8 +462,8 @@ export const projects = [
     ],
     "highlightVideo": {
       "title": "45초 하이라이트",
-      "src": "assets/media/ham-pocha/store-45sec-full-frame.mp4",
-      "poster": "assets/media/ham-pocha/store-45sec-full-frame.jpg"
+      "src": "assets/media/ham-pocha/store-45sec-full-frame.mp4?v=f86a071c2d69",
+      "poster": "assets/media/ham-pocha/store-45sec-full-frame.jpg?v=e33633d55556"
     },
     "gameplayLinks": [
       { "label": "itch.io에서 게임 소개 보기", "url": "https://hipebbles.itch.io/ham-pocha" },
