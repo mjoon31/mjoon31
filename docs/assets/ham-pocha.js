@@ -4,9 +4,6 @@ if (carousel) {
   const cards = [...viewport.querySelectorAll('.gameplay-carousel-card')];
   const previous = carousel.querySelector('[data-gallery-previous]');
   const next = carousel.querySelector('[data-gallery-next]');
-  const dialog = carousel.querySelector('dialog');
-  const video = dialog.querySelector('video');
-  const open = carousel.querySelector('[data-gallery-open]');
   let pointer;
   let cancelClick = false;
 
@@ -72,14 +69,11 @@ if (carousel) {
     cancelClick = false;
   }, true);
 
-  open.addEventListener('click', () => {
-    dialog.showModal();
-    video.play().catch(() => {});
-  });
-  dialog.querySelector('[data-gallery-close]').addEventListener('click', () => dialog.close());
-  dialog.addEventListener('close', () => {
-    video.pause();
-    open.focus();
-  });
   updateButtons();
+}
+
+for (const detail of document.querySelectorAll('.gameplay-video-details')) {
+  detail.addEventListener('toggle', () => {
+    if (!detail.open) detail.querySelector('video').pause();
+  });
 }

@@ -1,4 +1,6 @@
-.gameplay-carousel { min-width: 0; }
+.gameplay-carousel { min-width: 0; margin-top: 28px; }
+.gameplay-carousel h3 { margin-bottom: 12px; }
+.ham-pocha-case-link { margin-top: 12px; }
 .gameplay-carousel-track {
   display: flex;
   position: relative;
@@ -18,7 +20,7 @@
   margin: 0;
   scroll-snap-align: start;
 }
-.gameplay-carousel-card > :is(a, button) {
+.gameplay-carousel-card > a {
   position: relative;
   display: block;
   width: 100%;
@@ -31,23 +33,8 @@
 }
 .gameplay-carousel-card img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; }
 .gameplay-carousel-card figcaption { margin-top: 8px; font-size: 13px; color: var(--muted); }
-.gameplay-carousel-play {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: grid;
-  place-items: center;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  color: #fff;
-  background: #111c25df;
-  font-size: 23px;
-}
 .gameplay-carousel-controls { display: flex; justify-content: end; gap: 8px; margin-top: 9px; }
-.gameplay-carousel-controls button,
-.gameplay-carousel-dialog button {
+.gameplay-carousel-controls button {
   min-width: 44px;
   min-height: 44px;
   border: 1px solid #51616d;
@@ -57,23 +44,23 @@
   cursor: pointer;
 }
 .gameplay-carousel-controls button:disabled { opacity: .4; cursor: default; }
-.gameplay-carousel-dialog {
-  width: min(94vw, 1020px);
-  max-width: unset;
-  margin: auto;
-  padding: 16px;
-  border: 1px solid #51616d;
-  border-radius: 12px;
-  color: #e9eff4;
-  background: #222831;
-}
-.gameplay-carousel-dialog::backdrop { background: #080d14d9; }
-.gameplay-carousel-dialog header { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 12px; }
-.gameplay-carousel-dialog video { display: block; width: 100%; max-height: 76svh; background: #11171e; }
 .full-gameplay-landscape .film-player { width: 100%; margin: 14px 0 0; }
 .full-gameplay-landscape .film-player video { aspect-ratio: 16 / 9; }
 .full-gameplay-wide .film-player video { aspect-ratio: 13 / 6; }
-.full-gameplay-landscape .film-help { width: 100%; max-width: none; }
+.gameplay-video-details { margin-top: 20px; }
+.gameplay-video-details > summary {
+  min-height: 44px;
+  width: fit-content;
+  padding: 10px 14px;
+  border: 1px solid #51616d;
+  border-radius: 8px;
+  background: #303c47;
+  color: #e9eff4;
+  font-size: 14px;
+  cursor: pointer;
+}
+.gameplay-video-details > summary:hover { background: #343f4a; }
+.gameplay-video-details > summary span { margin-left: 8px; color: #c2cdd5; font-size: 12px; }
 .ai-case-group { margin-top: 34px; }
 .ai-case-group h3 { font-size: 20px; margin-bottom: 14px; }
 .ai-case-group article { padding: 16px 0 20px; border-bottom: 1px solid #3b4b56; }
@@ -89,5 +76,4 @@
 @media (max-width: 600px) {
   .gameplay-carousel-track { padding-right: 26px; gap: 10px; }
   .gameplay-carousel-card { flex-basis: calc(100% - 10px); }
-  .gameplay-carousel-dialog { padding: 10px; }
 }
