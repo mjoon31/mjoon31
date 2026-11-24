@@ -6,7 +6,7 @@ Unity와 C#을 기반으로 게임 개발 역량을 쌓아가고 있는 신입 �
 
 개인 모바일 게임 개발 경험을 바탕으로, 현재는 **NGO(Netcode for GameObjects)와 Steam P2P를 활용한 온라인 협동 게임**을 개발하고 있습니다.
 
-🌐 **[My Website](https://mjoon31.github.io/mjoon31)**
+🌐 **[My Website] [mjoon31.github.io/mjoon31](https://mjoon31.github.io/mjoon31)**
 
 ---
 
@@ -143,6 +143,6 @@ AI는 구현과 컴파일 검사를 맡았고, 개발자 본인은 Android에서
 
 ## 📫 Contact
 
-- **Portfolio:** [mjoon31.github.io/mjoon31](https://mjoon31.github.io/mjoon31)
+- **Website:** [mjoon31.github.io/mjoon31](https://mjoon31.github.io/mjoon31)
 - **GitHub:** [github.com/mjoon31](https://github.com/mjoon31)
 - **Email:** [xxmj96@gmail.com](mailto:xxmj96@gmail.com)
