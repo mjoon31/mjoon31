@@ -316,7 +316,7 @@ export const projects = [
     "title": "햄포차",
     "subtitle": "Ham Pocha",
     "cardSubtitle": "Ham Pocha",
-    "genre": "탐험 | 요리 | 포장마차 경영",
+    "genre": "캐주얼 | 경영 | 시뮬레이션",
     "platform": "Android | 가로 화면 | 싱글 플레이",
     "engine": "Unity 2022.3.62f3",
     "language": "C#",
