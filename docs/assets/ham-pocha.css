@@ -72,6 +72,7 @@
 .gameplay-carousel-dialog video { display: block; width: 100%; max-height: 76svh; background: #11171e; }
 .full-gameplay-landscape .film-player { width: 100%; margin: 14px 0 0; }
 .full-gameplay-landscape .film-player video { aspect-ratio: 16 / 9; }
+.full-gameplay-wide .film-player video { aspect-ratio: 13 / 6; }
 .full-gameplay-landscape .film-help { width: 100%; max-width: none; }
 .ai-case-group { margin-top: 34px; }
 .ai-case-group h3 { font-size: 20px; margin-bottom: 14px; }

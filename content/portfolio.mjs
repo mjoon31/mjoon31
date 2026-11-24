@@ -475,29 +475,36 @@ export const projects = [
     ],
     "storePreview": {
       "title": "플레이스토어 소개 영상",
-      "src": "assets/media/ham-pocha/store-preview.mp4",
+      "src": "assets/media/ham-pocha/store-preview.mp4?v=crop45",
       "poster": "assets/media/ham-pocha/store-preview.jpg"
     },
     "landscapeVideos": [
       {
-        "title": "햄포차 소개 영상",
-        "src": "assets/media/ham-pocha/website-intro.mp4",
-        "poster": "assets/media/ham-pocha/website-intro.jpg"
+        "title": "하이라이트 영상",
+        "src": "assets/media/ham-pocha/store-45sec-full-frame.mp4",
+        "poster": "assets/media/ham-pocha/store-45sec-full-frame.jpg",
+        "wide": true
       },
       {
-        "title": "플레이 소개 영상 (자막)",
-        "src": "assets/media/ham-pocha/subtitled-intro.mp4",
-        "poster": "assets/media/ham-pocha/subtitled-intro.jpg"
+        "title": "3분 소개 영상",
+        "src": "assets/media/ham-pocha/device-3min.mp4",
+        "poster": "assets/media/ham-pocha/device-3min.jpg",
+        "wide": true
       },
       {
-        "title": "기능 소개 영상 (자막)",
-        "src": "assets/media/ham-pocha/subtitled-features.mp4",
-        "poster": "assets/media/ham-pocha/subtitled-features.jpg"
+        "title": "기능 소개 영상",
+        "src": "assets/media/ham-pocha/overview-5min.mp4",
+        "poster": "assets/media/ham-pocha/overview-5min.jpg"
+      },
+      {
+        "title": "기술 설명 영상",
+        "src": "assets/media/ham-pocha/techniques-5min.mp4",
+        "poster": "assets/media/ham-pocha/techniques-5min.jpg"
       }
     ],
     "cardDescription": "숲에서 재료를 모으고, 직접 요리하고 서빙하며 나만의 포차를 키우는 3D 경영 게임.",
     "description": "숲에서 탐험과 영업으로 가게 성장이 햄스터의 일상인 3D 경영 게임입니다.",
-    "overview": "낮에는 숲에 들어가 저녁 장사에 쓸 재료를 모읍니다. 정오부터 포차를 열어 주문을 받고, 자정이 되면 남은 주문을 마무리합니다.\n장사로 번 골드와 경험치로 메뉴를 강화하고, 더 넓은 숲과 야시장을 엽니다. 밤에는 집에서 쉬며 다음 날을 준비합니다.",
+    "overview": "낮에는 숲에 들어가 저녁 장사에 쓸 재료를 모읍니다.\n정오부터 포차를 열어 주문을 받고, 자정이 되면 남은 주문을 마무리합니다.\n장사로 번 골드와 경험치로 메뉴를 강화하고, 더 넓은 숲과 야시장을 엽니다. 밤에는 집에서 쉬며 다음 날을 준비합니다.",
     "features": [],
     "gameplayContent": [
       {
@@ -539,7 +546,7 @@ export const projects = [
     "architectureLabel": "햄포차의 하루",
     "flow": [
       "숲에서 재료 수집",
-      "냉장고에 입고",
+      "냉장고에 보관",
       "주문, 조리와 서빙",
       "판매와 성장",
       "마감과 취침"
