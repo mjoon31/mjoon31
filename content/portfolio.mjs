@@ -350,13 +350,6 @@ export const projects = [
         "height": 1080
       },
       {
-        "src": "assets/media/ham-pocha/03-table-service.png",
-        "alt": "햄스터가 주문한 손님에게 음식을 전달하는 실내 포차 화면",
-        "caption": "손님에게 직접 서빙",
-        "width": 1920,
-        "height": 1080
-      },
-      {
         "src": "assets/media/ham-pocha/04-forest-harvest.png",
         "alt": "계절 숲에서 채집 대상을 찾아 재료를 모으는 화면",
         "caption": "숲에서 재료 수집",
@@ -371,13 +364,6 @@ export const projects = [
         "height": 1080
       },
       {
-        "src": "assets/media/ham-pocha/06-recipe-growth.png",
-        "alt": "성장 화면에서 음식을 강화하고 새 레시피를 확인하는 화면",
-        "caption": "레시피 강화",
-        "width": 1920,
-        "height": 1080
-      },
-      {
         "src": "assets/media/ham-pocha/07-outdoor-grill.png",
         "alt": "야시장 화로와 꼬치 진열대, 테이블이 보이는 화면",
         "caption": "야시장 꼬치 조리",
@@ -385,9 +371,9 @@ export const projects = [
         "height": 1080
       },
       {
-        "src": "assets/media/ham-pocha/08-village-walk.png",
-        "alt": "햄스터가 마을 길을 걷는 화면",
-        "caption": "마을 산책",
+        "src": "assets/media/ham-pocha/06-recipe-growth.png",
+        "alt": "성장 화면에서 음식을 강화하고 새 레시피를 확인하는 화면",
+        "caption": "레시피 강화",
         "width": 1920,
         "height": 1080
       },
@@ -486,7 +472,7 @@ export const projects = [
         "wide": true
       },
       {
-        "title": "3분 소개 영상",
+        "title": "3분 플레이 영상",
         "src": "assets/media/ham-pocha/device-3min.mp4",
         "poster": "assets/media/ham-pocha/device-3min.jpg",
         "wide": true
