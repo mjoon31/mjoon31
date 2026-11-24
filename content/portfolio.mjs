@@ -472,12 +472,6 @@ export const projects = [
         "wide": true
       },
       {
-        "title": "3분 플레이 영상",
-        "src": "assets/media/ham-pocha/device-3min.mp4",
-        "poster": "assets/media/ham-pocha/device-3min.jpg",
-        "wide": true
-      },
-      {
         "title": "기능 소개 영상",
         "src": "assets/media/ham-pocha/overview-5min.mp4",
         "poster": "assets/media/ham-pocha/overview-5min.jpg"
