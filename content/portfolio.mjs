@@ -324,7 +324,7 @@ export const projects = [
       "Firebase",
       "URP"
     ],
-    "developmentPeriod": "2026.11.05 — 2026.11.23 (출시 준비 중)",
+    "developmentPeriod": "2026년 11/5~11/6, 11/11~11/23\n(Google Play 비공개 테스트 준비 중)",
     "teamSize": "개인 프로젝트 | AI 협업",
     "role": "게임 설계 | AI 작업 지시와 검수 | Android 실기기 테스트",
     "status": "출시 준비 중",
