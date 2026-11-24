@@ -464,6 +464,10 @@ export const projects = [
       "src": "assets/media/ham-pocha/store-45sec-full-frame.mp4",
       "poster": "assets/media/ham-pocha/store-45sec-full-frame.jpg"
     },
+    "gameplayLinks": [
+      { "label": "itch.io에서 게임 소개 보기", "url": "https://hipebbles.itch.io/ham-pocha" },
+      { "label": "YouTube에서 플레이 영상 보기", "url": "https://www.youtube.com/@hipebbles" }
+    ],
     "featureVideo": {
       "title": "기능 소개 영상",
       "src": "assets/media/ham-pocha/overview-5min.mp4",

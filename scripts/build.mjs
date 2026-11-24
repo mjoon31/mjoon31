@@ -110,6 +110,7 @@ function landscapeGameplay(p, prefix) {
       <button type="button" data-gallery-next aria-label="다음 화면">→</button>
     </div>
   </div>
+  ${p.gameplayLinks?.length ? `<div class="gameplay-external-links">${p.gameplayLinks.map(link => ext(link.url, e(link.label), 'small-link')).join('')}</div>` : ''}
   ${optionalVideo(p.featureVideo, prefix)}`;
 }
 
@@ -192,7 +193,7 @@ function detail(p, index) {
   const sectionNumber = index => String(index + 1).padStart(2, '0');
   const iconCover = p.cardArtwork || p.cardIllustration;
   return shell({title:`${p.title} · 김명준의 게임 개발 포트폴리오`,description:p.description,route:`projects/${p.slug}/`,prefix,detail:true,image:p.thumbnail,hamPochaAssets:Boolean(p.highlightVideo),body:`<main id="main" class="detail-main"><div class="container"><nav class="breadcrumb" aria-label="현재 위치"><a href="../../#projects">프로젝트</a><span aria-hidden="true">/</span><span aria-current="page">${e(p.title)}</span></nav><section class="project-hero" aria-labelledby="detail-title"><div class="detail-title-row hero-entry"><div><p class="eyebrow">PROJECT ${p.id} <span>/ ${e(p.subtitle)}</span></p><h1 id="detail-title">${e(p.title)}</h1><p class="detail-subtitle">${lines(p.description)}</p>${p.highlightVideo ? '<a class="small-link ham-pocha-case-link" href="#contributions">AI 협업 사례 바로 보기 <span aria-hidden="true">↓</span></a>' : ''}</div>${p.showDetailStatus===false||p.statusKind==='history'?'':`<span class="status ${p.statusKind}"><i aria-hidden="true"></i>${e(p.status)}</span>`}</div><figure class="detail-cover hero-entry${iconCover?' detail-app-icon':''}${p.placeholder?' detail-placeholder':''}">${iconCover?`<img src="${prefix}${p.thumbnail}" alt="${e(p.thumbnailAlt)}" width="1254" height="1254">`:artwork(p,prefix)}<figcaption>${p.placeholder?'임시 커버, 실제 게임 스크린샷 준비 중':iconCover?'앱 아이콘':'게임 대표 화면'}</figcaption></figure><dl class="project-facts">${[['장르',p.genre],['플랫폼',p.platform],['개발 기간',p.developmentPeriod],['개발 인원',p.teamSize],['담당 역할',p.role],['기술',[p.engine,p.language,...(p.additionalTechnologies||[])].join(' | ')]].map(([k,v])=>`<div><dt>${e(k)}</dt><dd>${detailCopy(v)}</dd></div>`).join('')}</dl></section></div>
-<div class="detail-body container"><aside class="detail-toc"><p class="mono">IN THIS PROJECT</p><nav aria-label="프로젝트 목차">${sections.map(({id,label},i)=>`<a href="#${id}"><span>${sectionNumber(i)}</span>${e(label)}</a>`).join('')}</nav><a class="small-link" href="../../#projects">← 프로젝트 목록</a></aside><div class="detail-content">
+<div class="detail-body container"><aside class="detail-toc"><p class="mono">IN THIS PROJECT</p><nav aria-label="프로젝트 목차">${sections.map(({id,label},i)=>`<a href="#${id}"><span>${sectionNumber(i)}</span>${e(label)}</a>`).join('')}</nav>${p.highlightVideo ? '<a class="small-link ham-pocha-back-link" href="../../#projects"><span aria-hidden="true">←</span> 프로젝트 목록</a>' : '<a class="small-link" href="../../#projects">← 프로젝트 목록</a>'}</aside><div class="detail-content">
 ${sections.map(({id,eyebrow,title,body},i) =>
   `<section id="${id}" class="detail-section reveal"><p class="eyebrow">${sectionNumber(i)} / ${eyebrow}</p><h2>${e(title)}</h2>${body}</section>`
 ).join('\n')}
